@@ -29,6 +29,7 @@ Partial Class MenuAwal
         Me.Btn_Web = New MetroFramework.Controls.MetroButton()
         Me.MetroLabel1 = New MetroFramework.Controls.MetroLabel()
         Me.Tab_deviceCheck = New MetroFramework.Controls.MetroTabPage()
+        Me.Btn_Save_Info = New MetroFramework.Controls.MetroButton()
         Me.MetroLabel4 = New MetroFramework.Controls.MetroLabel()
         Me.Btn_Check = New MetroFramework.Controls.MetroButton()
         Me.MetroLabel3 = New MetroFramework.Controls.MetroLabel()
@@ -51,17 +52,26 @@ Partial Class MenuAwal
         Me.Btn_Recov_Boot = New MetroFramework.Controls.MetroButton()
         Me.Btn_Recov_Flash = New MetroFramework.Controls.MetroButton()
         Me.Tab_Log = New MetroFramework.Controls.MetroTabPage()
-        Me.MetroLabel6 = New MetroFramework.Controls.MetroLabel()
         Me.Btn_InfoSave_txt = New MetroFramework.Controls.MetroButton()
-        Me.Textbox_Log = New MetroFramework.Controls.MetroTextBox()
         Me.Btn_Logcat = New MetroFramework.Controls.MetroButton()
         Me.Btn_Dmseg = New MetroFramework.Controls.MetroButton()
+        Me.MetroTextBox1 = New MetroFramework.Controls.MetroTextBox()
         Me.Tab_Misc = New MetroFramework.Controls.MetroTabPage()
         Me.Btn_Frp = New MetroFramework.Controls.MetroButton()
         Me.Btn_AdbRestart = New MetroFramework.Controls.MetroButton()
         Me.Btn_DeviceManager = New MetroFramework.Controls.MetroButton()
         Me.Btn_Apk_Install = New MetroFramework.Controls.MetroButton()
-        Me.Btn_Save_Info = New MetroFramework.Controls.MetroButton()
+        Me.List_Apk = New System.Windows.Forms.ListBox()
+        Me.Tab_Apk_Push = New MetroFramework.Controls.MetroTabPage()
+        Me.Btn_FilePush = New MetroFramework.Controls.MetroButton()
+        Me.List_Push = New System.Windows.Forms.ListBox()
+        Me.TxtBox_Push = New MetroFramework.Controls.MetroTextBox()
+        Me.Tab_Oem = New MetroFramework.Controls.MetroTabPage()
+        Me.Btn_Unlock = New MetroFramework.Controls.MetroButton()
+        Me.Btn_UnlockCritical = New MetroFramework.Controls.MetroButton()
+        Me.Btn_Lock = New MetroFramework.Controls.MetroButton()
+        Me.TxtBox_Oem = New MetroFramework.Controls.MetroTextBox()
+        Me.MetroLabel6 = New MetroFramework.Controls.MetroLabel()
         Me.Tab_Menu.SuspendLayout()
         Me.Tab_Dashboard.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -70,6 +80,8 @@ Partial Class MenuAwal
         Me.Tab_Recovery.SuspendLayout()
         Me.Tab_Log.SuspendLayout()
         Me.Tab_Misc.SuspendLayout()
+        Me.Tab_Apk_Push.SuspendLayout()
+        Me.Tab_Oem.SuspendLayout()
         Me.SuspendLayout()
         '
         'Tab_Menu
@@ -77,12 +89,14 @@ Partial Class MenuAwal
         Me.Tab_Menu.Controls.Add(Me.Tab_Dashboard)
         Me.Tab_Menu.Controls.Add(Me.Tab_deviceCheck)
         Me.Tab_Menu.Controls.Add(Me.Tab_Reboot)
+        Me.Tab_Menu.Controls.Add(Me.Tab_Oem)
         Me.Tab_Menu.Controls.Add(Me.Tab_Recovery)
-        Me.Tab_Menu.Controls.Add(Me.Tab_Log)
+        Me.Tab_Menu.Controls.Add(Me.Tab_Apk_Push)
         Me.Tab_Menu.Controls.Add(Me.Tab_Misc)
+        Me.Tab_Menu.Controls.Add(Me.Tab_Log)
         Me.Tab_Menu.Location = New System.Drawing.Point(3, 77)
         Me.Tab_Menu.Name = "Tab_Menu"
-        Me.Tab_Menu.SelectedIndex = 4
+        Me.Tab_Menu.SelectedIndex = 0
         Me.Tab_Menu.Size = New System.Drawing.Size(543, 259)
         Me.Tab_Menu.TabIndex = 0
         '
@@ -151,6 +165,14 @@ Partial Class MenuAwal
         Me.Tab_deviceCheck.TabIndex = 0
         Me.Tab_deviceCheck.Text = "Device Check"
         Me.Tab_deviceCheck.VerticalScrollbarBarColor = True
+        '
+        'Btn_Save_Info
+        '
+        Me.Btn_Save_Info.Location = New System.Drawing.Point(3, 186)
+        Me.Btn_Save_Info.Name = "Btn_Save_Info"
+        Me.Btn_Save_Info.Size = New System.Drawing.Size(275, 21)
+        Me.Btn_Save_Info.TabIndex = 10
+        Me.Btn_Save_Info.Text = "Save TO File"
         '
         'MetroLabel4
         '
@@ -321,7 +343,7 @@ Partial Class MenuAwal
         '
         'Btn_AdbSideload
         '
-        Me.Btn_AdbSideload.Location = New System.Drawing.Point(376, 144)
+        Me.Btn_AdbSideload.Location = New System.Drawing.Point(363, 139)
         Me.Btn_AdbSideload.Name = "Btn_AdbSideload"
         Me.Btn_AdbSideload.Size = New System.Drawing.Size(94, 37)
         Me.Btn_AdbSideload.TabIndex = 4
@@ -329,7 +351,7 @@ Partial Class MenuAwal
         '
         'Btn_Recov_Boot
         '
-        Me.Btn_Recov_Boot.Location = New System.Drawing.Point(434, 84)
+        Me.Btn_Recov_Boot.Location = New System.Drawing.Point(414, 84)
         Me.Btn_Recov_Boot.Name = "Btn_Recov_Boot"
         Me.Btn_Recov_Boot.Size = New System.Drawing.Size(94, 37)
         Me.Btn_Recov_Boot.TabIndex = 3
@@ -337,7 +359,7 @@ Partial Class MenuAwal
         '
         'Btn_Recov_Flash
         '
-        Me.Btn_Recov_Flash.Location = New System.Drawing.Point(300, 84)
+        Me.Btn_Recov_Flash.Location = New System.Drawing.Point(296, 84)
         Me.Btn_Recov_Flash.Name = "Btn_Recov_Flash"
         Me.Btn_Recov_Flash.Size = New System.Drawing.Size(94, 37)
         Me.Btn_Recov_Flash.TabIndex = 2
@@ -345,9 +367,8 @@ Partial Class MenuAwal
         '
         'Tab_Log
         '
-        Me.Tab_Log.Controls.Add(Me.MetroLabel6)
+        Me.Tab_Log.Controls.Add(Me.MetroTextBox1)
         Me.Tab_Log.Controls.Add(Me.Btn_InfoSave_txt)
-        Me.Tab_Log.Controls.Add(Me.Textbox_Log)
         Me.Tab_Log.Controls.Add(Me.Btn_Logcat)
         Me.Tab_Log.Controls.Add(Me.Btn_Dmseg)
         Me.Tab_Log.HorizontalScrollbarBarColor = True
@@ -358,34 +379,17 @@ Partial Class MenuAwal
         Me.Tab_Log.Text = "Log"
         Me.Tab_Log.VerticalScrollbarBarColor = True
         '
-        'MetroLabel6
-        '
-        Me.MetroLabel6.AutoSize = True
-        Me.MetroLabel6.Location = New System.Drawing.Point(12, 10)
-        Me.MetroLabel6.Name = "MetroLabel6"
-        Me.MetroLabel6.Size = New System.Drawing.Size(42, 19)
-        Me.MetroLabel6.TabIndex = 7
-        Me.MetroLabel6.Text = "LOG :"
-        '
         'Btn_InfoSave_txt
         '
-        Me.Btn_InfoSave_txt.Location = New System.Drawing.Point(385, 159)
+        Me.Btn_InfoSave_txt.Location = New System.Drawing.Point(193, 161)
         Me.Btn_InfoSave_txt.Name = "Btn_InfoSave_txt"
         Me.Btn_InfoSave_txt.Size = New System.Drawing.Size(123, 37)
         Me.Btn_InfoSave_txt.TabIndex = 6
         Me.Btn_InfoSave_txt.Text = "Save Log To File"
         '
-        'Textbox_Log
-        '
-        Me.Textbox_Log.Location = New System.Drawing.Point(12, 32)
-        Me.Textbox_Log.Multiline = True
-        Me.Textbox_Log.Name = "Textbox_Log"
-        Me.Textbox_Log.Size = New System.Drawing.Size(335, 164)
-        Me.Textbox_Log.TabIndex = 5
-        '
         'Btn_Logcat
         '
-        Me.Btn_Logcat.Location = New System.Drawing.Point(385, 97)
+        Me.Btn_Logcat.Location = New System.Drawing.Point(272, 97)
         Me.Btn_Logcat.Name = "Btn_Logcat"
         Me.Btn_Logcat.Size = New System.Drawing.Size(123, 37)
         Me.Btn_Logcat.TabIndex = 4
@@ -393,65 +397,172 @@ Partial Class MenuAwal
         '
         'Btn_Dmseg
         '
-        Me.Btn_Dmseg.Location = New System.Drawing.Point(385, 32)
+        Me.Btn_Dmseg.Location = New System.Drawing.Point(93, 97)
         Me.Btn_Dmseg.Name = "Btn_Dmseg"
         Me.Btn_Dmseg.Size = New System.Drawing.Size(123, 37)
         Me.Btn_Dmseg.TabIndex = 3
         Me.Btn_Dmseg.Text = "DMSEG "
+        '
+        'MetroTextBox1
+        '
+        Me.MetroTextBox1.Location = New System.Drawing.Point(105, 42)
+        Me.MetroTextBox1.Name = "MetroTextBox1"
+        Me.MetroTextBox1.Size = New System.Drawing.Size(290, 27)
+        Me.MetroTextBox1.TabIndex = 7
+        Me.MetroTextBox1.Text = "MetroTextBox1"
         '
         'Tab_Misc
         '
         Me.Tab_Misc.Controls.Add(Me.Btn_Frp)
         Me.Tab_Misc.Controls.Add(Me.Btn_AdbRestart)
         Me.Tab_Misc.Controls.Add(Me.Btn_DeviceManager)
-        Me.Tab_Misc.Controls.Add(Me.Btn_Apk_Install)
         Me.Tab_Misc.HorizontalScrollbarBarColor = True
         Me.Tab_Misc.Location = New System.Drawing.Point(4, 35)
         Me.Tab_Misc.Name = "Tab_Misc"
-        Me.Tab_Misc.Size = New System.Drawing.Size(535, 209)
-        Me.Tab_Misc.TabIndex = 6
+        Me.Tab_Misc.Size = New System.Drawing.Size(535, 220)
+        Me.Tab_Misc.TabIndex = 7
         Me.Tab_Misc.Text = "Misc"
         Me.Tab_Misc.VerticalScrollbarBarColor = True
         '
         'Btn_Frp
         '
-        Me.Btn_Frp.Location = New System.Drawing.Point(385, 132)
+        Me.Btn_Frp.Location = New System.Drawing.Point(206, 146)
         Me.Btn_Frp.Name = "Btn_Frp"
         Me.Btn_Frp.Size = New System.Drawing.Size(123, 29)
-        Me.Btn_Frp.TabIndex = 7
+        Me.Btn_Frp.TabIndex = 10
         Me.Btn_Frp.Text = "RESET FRP"
         '
         'Btn_AdbRestart
         '
-        Me.Btn_AdbRestart.Location = New System.Drawing.Point(385, 84)
+        Me.Btn_AdbRestart.Location = New System.Drawing.Point(206, 98)
         Me.Btn_AdbRestart.Name = "Btn_AdbRestart"
         Me.Btn_AdbRestart.Size = New System.Drawing.Size(123, 29)
-        Me.Btn_AdbRestart.TabIndex = 6
+        Me.Btn_AdbRestart.TabIndex = 9
         Me.Btn_AdbRestart.Text = "RESTART ADB"
         '
         'Btn_DeviceManager
         '
-        Me.Btn_DeviceManager.Location = New System.Drawing.Point(242, 84)
+        Me.Btn_DeviceManager.Location = New System.Drawing.Point(206, 46)
         Me.Btn_DeviceManager.Name = "Btn_DeviceManager"
         Me.Btn_DeviceManager.Size = New System.Drawing.Size(123, 29)
-        Me.Btn_DeviceManager.TabIndex = 5
+        Me.Btn_DeviceManager.TabIndex = 8
         Me.Btn_DeviceManager.Text = "DEVICE MANAGER"
         '
         'Btn_Apk_Install
         '
-        Me.Btn_Apk_Install.Location = New System.Drawing.Point(242, 132)
+        Me.Btn_Apk_Install.Location = New System.Drawing.Point(52, 178)
         Me.Btn_Apk_Install.Name = "Btn_Apk_Install"
         Me.Btn_Apk_Install.Size = New System.Drawing.Size(123, 29)
         Me.Btn_Apk_Install.TabIndex = 4
         Me.Btn_Apk_Install.Text = "INSTALL APK"
         '
-        'Btn_Save_Info
+        'List_Apk
         '
-        Me.Btn_Save_Info.Location = New System.Drawing.Point(3, 186)
-        Me.Btn_Save_Info.Name = "Btn_Save_Info"
-        Me.Btn_Save_Info.Size = New System.Drawing.Size(275, 21)
-        Me.Btn_Save_Info.TabIndex = 10
-        Me.Btn_Save_Info.Text = "Save TO File"
+        Me.List_Apk.FormattingEnabled = True
+        Me.List_Apk.ItemHeight = 16
+        Me.List_Apk.Location = New System.Drawing.Point(12, 31)
+        Me.List_Apk.Name = "List_Apk"
+        Me.List_Apk.Size = New System.Drawing.Size(218, 100)
+        Me.List_Apk.TabIndex = 8
+        '
+        'Tab_Apk_Push
+        '
+        Me.Tab_Apk_Push.Controls.Add(Me.TxtBox_Push)
+        Me.Tab_Apk_Push.Controls.Add(Me.List_Push)
+        Me.Tab_Apk_Push.Controls.Add(Me.Btn_FilePush)
+        Me.Tab_Apk_Push.Controls.Add(Me.List_Apk)
+        Me.Tab_Apk_Push.Controls.Add(Me.Btn_Apk_Install)
+        Me.Tab_Apk_Push.HorizontalScrollbarBarColor = True
+        Me.Tab_Apk_Push.Location = New System.Drawing.Point(4, 35)
+        Me.Tab_Apk_Push.Name = "Tab_Apk_Push"
+        Me.Tab_Apk_Push.Size = New System.Drawing.Size(535, 220)
+        Me.Tab_Apk_Push.TabIndex = 6
+        Me.Tab_Apk_Push.Text = "Apk/Push"
+        Me.Tab_Apk_Push.VerticalScrollbarBarColor = True
+        '
+        'Btn_FilePush
+        '
+        Me.Btn_FilePush.Location = New System.Drawing.Point(360, 178)
+        Me.Btn_FilePush.Name = "Btn_FilePush"
+        Me.Btn_FilePush.Size = New System.Drawing.Size(123, 29)
+        Me.Btn_FilePush.TabIndex = 9
+        Me.Btn_FilePush.Text = "FILE PUSH"
+        '
+        'List_Push
+        '
+        Me.List_Push.FormattingEnabled = True
+        Me.List_Push.ItemHeight = 16
+        Me.List_Push.Location = New System.Drawing.Point(302, 31)
+        Me.List_Push.Name = "List_Push"
+        Me.List_Push.Size = New System.Drawing.Size(218, 100)
+        Me.List_Push.TabIndex = 10
+        '
+        'TxtBox_Push
+        '
+        Me.TxtBox_Push.Location = New System.Drawing.Point(302, 137)
+        Me.TxtBox_Push.Name = "TxtBox_Push"
+        Me.TxtBox_Push.Size = New System.Drawing.Size(218, 28)
+        Me.TxtBox_Push.TabIndex = 11
+        Me.TxtBox_Push.Text = "/mnt/sdcard/"
+        '
+        'Tab_Oem
+        '
+        Me.Tab_Oem.Controls.Add(Me.MetroLabel6)
+        Me.Tab_Oem.Controls.Add(Me.TxtBox_Oem)
+        Me.Tab_Oem.Controls.Add(Me.Btn_Lock)
+        Me.Tab_Oem.Controls.Add(Me.Btn_UnlockCritical)
+        Me.Tab_Oem.Controls.Add(Me.Btn_Unlock)
+        Me.Tab_Oem.HorizontalScrollbarBarColor = True
+        Me.Tab_Oem.Location = New System.Drawing.Point(4, 35)
+        Me.Tab_Oem.Name = "Tab_Oem"
+        Me.Tab_Oem.Size = New System.Drawing.Size(535, 220)
+        Me.Tab_Oem.TabIndex = 8
+        Me.Tab_Oem.Text = "Oem"
+        Me.Tab_Oem.VerticalScrollbarBarColor = True
+        '
+        'Btn_Unlock
+        '
+        Me.Btn_Unlock.Location = New System.Drawing.Point(320, 28)
+        Me.Btn_Unlock.Name = "Btn_Unlock"
+        Me.Btn_Unlock.Size = New System.Drawing.Size(176, 40)
+        Me.Btn_Unlock.TabIndex = 3
+        Me.Btn_Unlock.Text = "UNLOCK (BASIC)"
+        '
+        'Btn_UnlockCritical
+        '
+        Me.Btn_UnlockCritical.Location = New System.Drawing.Point(320, 87)
+        Me.Btn_UnlockCritical.Name = "Btn_UnlockCritical"
+        Me.Btn_UnlockCritical.Size = New System.Drawing.Size(176, 40)
+        Me.Btn_UnlockCritical.TabIndex = 4
+        Me.Btn_UnlockCritical.Text = "UNLOCK CRITICAL"
+        '
+        'Btn_Lock
+        '
+        Me.Btn_Lock.Location = New System.Drawing.Point(320, 145)
+        Me.Btn_Lock.Name = "Btn_Lock"
+        Me.Btn_Lock.Size = New System.Drawing.Size(176, 40)
+        Me.Btn_Lock.TabIndex = 5
+        Me.Btn_Lock.Text = "LOCK"
+        '
+        'TxtBox_Oem
+        '
+        Me.TxtBox_Oem.Location = New System.Drawing.Point(3, 27)
+        Me.TxtBox_Oem.Multiline = True
+        Me.TxtBox_Oem.Name = "TxtBox_Oem"
+        Me.TxtBox_Oem.ReadOnly = True
+        Me.TxtBox_Oem.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
+        Me.TxtBox_Oem.Size = New System.Drawing.Size(275, 158)
+        Me.TxtBox_Oem.TabIndex = 6
+        Me.TxtBox_Oem.UseStyleColors = True
+        '
+        'MetroLabel6
+        '
+        Me.MetroLabel6.AutoSize = True
+        Me.MetroLabel6.Location = New System.Drawing.Point(3, 5)
+        Me.MetroLabel6.Name = "MetroLabel6"
+        Me.MetroLabel6.Size = New System.Drawing.Size(47, 19)
+        Me.MetroLabel6.TabIndex = 10
+        Me.MetroLabel6.Text = "INFO :"
         '
         'MenuAwal
         '
@@ -475,8 +586,10 @@ Partial Class MenuAwal
         Me.Tab_Recovery.ResumeLayout(False)
         Me.Tab_Recovery.PerformLayout()
         Me.Tab_Log.ResumeLayout(False)
-        Me.Tab_Log.PerformLayout()
         Me.Tab_Misc.ResumeLayout(False)
+        Me.Tab_Apk_Push.ResumeLayout(False)
+        Me.Tab_Oem.ResumeLayout(False)
+        Me.Tab_Oem.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -499,10 +612,8 @@ Partial Class MenuAwal
     Friend WithEvents Btn_rbt_System As MetroFramework.Controls.MetroButton
     Friend WithEvents Btn_Recov_Boot As MetroFramework.Controls.MetroButton
     Friend WithEvents Btn_Recov_Flash As MetroFramework.Controls.MetroButton
-    Friend WithEvents Textbox_Log As MetroFramework.Controls.MetroTextBox
     Friend WithEvents Btn_Logcat As MetroFramework.Controls.MetroButton
     Friend WithEvents Btn_Dmseg As MetroFramework.Controls.MetroButton
-    Friend WithEvents Tab_Misc As MetroFramework.Controls.MetroTabPage
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents Btn_Check As MetroFramework.Controls.MetroButton
     Friend WithEvents MetroLabel3 As MetroFramework.Controls.MetroLabel
@@ -510,15 +621,27 @@ Partial Class MenuAwal
     Friend WithEvents Btn_InfoSave_txt As MetroFramework.Controls.MetroButton
     Friend WithEvents Textbox_Status_Recovery As MetroFramework.Controls.MetroTextBox
     Friend WithEvents Btn_AdbSideload As MetroFramework.Controls.MetroButton
-    Friend WithEvents Btn_Frp As MetroFramework.Controls.MetroButton
-    Friend WithEvents Btn_AdbRestart As MetroFramework.Controls.MetroButton
-    Friend WithEvents Btn_DeviceManager As MetroFramework.Controls.MetroButton
-    Friend WithEvents Btn_Apk_Install As MetroFramework.Controls.MetroButton
     Friend WithEvents MetroLabel4 As MetroFramework.Controls.MetroLabel
     Friend WithEvents Btn_Check_CurrentSlot As MetroFramework.Controls.MetroButton
     Friend WithEvents Btn_CHG_SlotB As MetroFramework.Controls.MetroButton
     Friend WithEvents Btn_CHG_SlotA As MetroFramework.Controls.MetroButton
     Friend WithEvents MetroLabel5 As MetroFramework.Controls.MetroLabel
-    Friend WithEvents MetroLabel6 As MetroFramework.Controls.MetroLabel
     Friend WithEvents Btn_Save_Info As MetroFramework.Controls.MetroButton
+    Friend WithEvents MetroTextBox1 As MetroFramework.Controls.MetroTextBox
+    Friend WithEvents Tab_Misc As MetroFramework.Controls.MetroTabPage
+    Friend WithEvents Btn_Frp As MetroFramework.Controls.MetroButton
+    Friend WithEvents Btn_AdbRestart As MetroFramework.Controls.MetroButton
+    Friend WithEvents Btn_DeviceManager As MetroFramework.Controls.MetroButton
+    Friend WithEvents Tab_Apk_Push As MetroFramework.Controls.MetroTabPage
+    Friend WithEvents List_Push As ListBox
+    Friend WithEvents Btn_FilePush As MetroFramework.Controls.MetroButton
+    Friend WithEvents List_Apk As ListBox
+    Friend WithEvents Btn_Apk_Install As MetroFramework.Controls.MetroButton
+    Friend WithEvents TxtBox_Push As MetroFramework.Controls.MetroTextBox
+    Friend WithEvents Tab_Oem As MetroFramework.Controls.MetroTabPage
+    Friend WithEvents MetroLabel6 As MetroFramework.Controls.MetroLabel
+    Friend WithEvents TxtBox_Oem As MetroFramework.Controls.MetroTextBox
+    Friend WithEvents Btn_Lock As MetroFramework.Controls.MetroButton
+    Friend WithEvents Btn_UnlockCritical As MetroFramework.Controls.MetroButton
+    Friend WithEvents Btn_Unlock As MetroFramework.Controls.MetroButton
 End Class

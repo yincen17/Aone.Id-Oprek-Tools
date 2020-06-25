@@ -22,5 +22,75 @@ Aone.Id-Oprek-Tools
   resource lookups using this strongly typed resource class.
 </summary>
 </member>
+<member name="P:Aone.Id_Oprek_Tools.My.Resources.Resources.adb">
+<summary>
+  Looks up a localized resource of type System.Byte[].
+</summary>
+</member>
+<member name="P:Aone.Id_Oprek_Tools.My.Resources.Resources.AdbWinApi">
+<summary>
+  Looks up a localized resource of type System.Byte[].
+</summary>
+</member>
+<member name="P:Aone.Id_Oprek_Tools.My.Resources.Resources.AdbWinUsbApi">
+<summary>
+  Looks up a localized resource of type System.Byte[].
+</summary>
+</member>
+<member name="P:Aone.Id_Oprek_Tools.My.Resources.Resources.CheckActiveSlot">
+<summary>
+  Looks up a localized string similar to @echo off
+title Cek Slot
+fastboot getvar all
+pause
+exit.
+</summary>
+</member>
+<member name="P:Aone.Id_Oprek_Tools.My.Resources.Resources.DeviceCheck">
+<summary>
+  Looks up a localized string similar to @echo off
+title Checking Connection
+fastboot devices
+adb devices
+.
+</summary>
+</member>
+<member name="P:Aone.Id_Oprek_Tools.My.Resources.Resources.fastboot">
+<summary>
+  Looks up a localized resource of type System.Byte[].
+</summary>
+</member>
+<member name="P:Aone.Id_Oprek_Tools.My.Resources.Resources.GetDmesg">
+<summary>
+  Looks up a localized string similar to @echo off
+title Dmesg
+adb shell su -c dmesg .
+</summary>
+</member>
+<member name="P:Aone.Id_Oprek_Tools.My.Resources.Resources.GetInformationBootloader">
+<summary>
+  Looks up a localized string similar to @echo off
+title Ghatering Information
+fastboot getvar all 
+
+.
+</summary>
+</member>
+<member name="P:Aone.Id_Oprek_Tools.My.Resources.Resources.GetInformationSystem">
+<summary>
+  Looks up a localized string similar to @echo off
+title Ghatering Information
+adb shell getprop
+
+.
+</summary>
+</member>
+<member name="P:Aone.Id_Oprek_Tools.My.Resources.Resources.Getlogcat">
+<summary>
+  Looks up a localized string similar to @echo off
+title logcat
+adb logcat.
+</summary>
+</member>
 </members>
 </doc>
