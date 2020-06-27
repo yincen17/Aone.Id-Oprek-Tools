@@ -1,6 +1,5 @@
 ﻿Imports System.IO
 Imports System.Threading
-Imports System.Windows.Forms.DialogResult
 Public Class MenuAwal
     'sebagian Tutorial ada disini  https://forum.xda-developers.com/showthread.php?t=2315695
     Private lstScan As Object
@@ -214,38 +213,29 @@ Public Class MenuAwal
         CMD.Close()
     End Sub
 
-    Private Sub Btn_Apk_Install_Click(sender As Object, e As EventArgs) Handles Btn_Apk_Install.Click
+    Private Sub Btn_Apk_Install_Click(sender As Object, e As EventArgs) Handles Btn_Apk_SELECT.Click
         Dim FolderBrowse As New FolderBrowserDialog
         FolderBrowse.Description = "Select the folder containing your APK files."
         FolderBrowse.RootFolder = Environment.SpecialFolder.DesktopDirectory
         FolderBrowse.ShowNewFolderButton = False
         Dim DialogRes As DialogResult = FolderBrowse.ShowDialog()
-        If DialogRes = Windows.Forms.DialogResult.OK Then
+        If DialogRes = System.Windows.Forms.DialogResult.OK Then
             For Each Item As String In My.Computer.FileSystem.GetFiles(FolderBrowse.SelectedPath)
                 List_Apk.Items.Add(Item)
             Next
         End If
     End Sub
-
-    Private Sub List_Apk_SelectedIndexChanged(sender As Object, e As EventArgs) Handles List_Apk.SelectedIndexChanged
-        Shell("""ADB\adb.exe"" install " & List_Apk.SelectedItem.ToString, AppWinStyle.NormalFocus, True, 30000)
-    End Sub
-
-    Private Sub Btn_FilePush_Click(sender As Object, e As EventArgs) Handles Btn_FilePush.Click
+    Private Sub Btn_FilePush_Click(sender As Object, e As EventArgs) Handles Btn_File_Select.Click
         Dim FolderBrowse As New FolderBrowserDialog
         FolderBrowse.Description = "Select the folder containing the file/s you want to push to the device..."
         FolderBrowse.ShowNewFolderButton = False
         FolderBrowse.RootFolder = Environment.SpecialFolder.DesktopDirectory
         Dim DialogRes As DialogResult = FolderBrowse.ShowDialog()
-        If DialogRes = Windows.Forms.DialogResult.OK Then
+        If DialogRes = System.Windows.Forms.DialogResult.OK Then
             For Each Item As String In My.Computer.FileSystem.GetFiles(FolderBrowse.SelectedPath)
                 List_Push.Items.Add(Item)
             Next
         End If
-    End Sub
-
-    Private Sub List_Push_SelectedIndexChanged(sender As Object, e As EventArgs) Handles List_Push.SelectedIndexChanged
-        Shell("""ADB\adb.exe"" push " & List_Push.SelectedItem & " " & TxtBox_Push.Text, AppWinStyle.NormalFocus, True, 30000)
     End Sub
 
     Private Sub Btn_DeviceManager_Click(sender As Object, e As EventArgs) Handles Btn_DeviceManager.Click
@@ -260,6 +250,40 @@ Public Class MenuAwal
     End Sub
 
     Private Sub Btn_Frp_Click(sender As Object, e As EventArgs) Handles Btn_Frp.Click
-        Shell("""ADB\fastboot.exe"" erase config", AppWinStyle.NormalFocus, True, 30000)
+        Dim x As Object = MessageBox.Show("Are you sure?", "onfirmation
+
+",
+                         MessageBoxButtons.OKCancel,
+                         MessageBoxIcon.Question)
+
+        If x = System.Windows.Forms.DialogResult.OK Then
+            Shell("""ADB\fastboot.exe"" erase config", AppWinStyle.NormalFocus, True, 30000)
+        ElseIf x = system.Windows.Forms.DialogResult.Cancel Then
+        End If
+    End Sub
+
+    Private Sub Btn_filePush_Click_1(sender As Object, e As EventArgs) Handles Btn_filePush.Click
+        If TxtBox_Push.Text = String.Empty Then
+            MsgBox("Push Location Empty Returned To Default Location Try Again!", MessageBoxIcon.Exclamation, "Warning!")
+            TxtBox_Push.Text = "/mnt/sdcard/"
+        Else
+            Shell("""ADB\adb.exe"" push " & List_Push.SelectedItem & " " & TxtBox_Push.Text, AppWinStyle.NormalFocus, True, 30000)
+        End If
+    End Sub
+
+    Private Sub TxtBox_Push_Click(sender As Object, e As EventArgs) Handles TxtBox_Push.Click
+
+    End Sub
+
+    Private Sub Btn_Apk_Install_Click_1(sender As Object, e As EventArgs) Handles Btn_Apk_Install.Click
+        If List_Apk.Text = String.Empty Then
+            MsgBox(" No APK Selected!", MessageBoxIcon.Exclamation, "Warning!")
+        Else
+            Shell("""ADB\adb.exe"" install " & List_Apk.SelectedItem.ToString, AppWinStyle.NormalFocus, True, 30000)
+        End If
+    End Sub
+
+    Private Sub Tab_deviceCheck_Click(sender As Object, e As EventArgs) Handles Tab_deviceCheck.Click
+
     End Sub
 End Class
