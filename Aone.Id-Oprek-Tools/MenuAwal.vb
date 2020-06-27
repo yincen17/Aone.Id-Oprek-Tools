@@ -128,10 +128,10 @@ Public Class MenuAwal
     End Sub
 
     Private Sub MenuAwal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'Mendeteksi Foldeer Jika tidak ada fodler Adb Membuat folder
+        'Mendeteksi Foldeer Jika tidak ada folder Adb Membuat folder
         If Not Directory.Exists("Adb") Then
             Directory.CreateDirectory("Adb")
-        Else
+
             'Mendeteksi Adb Jika tidak Ada Akan Menggunakan Default Adb yang ada di resource
             If Not File.Exists("Adb\adb.exe") Then
                 File.WriteAllBytes("Adb\adb.exe", My.Resources.adb)
