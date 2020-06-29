@@ -2,6 +2,9 @@
 Imports System.Threading
 Public Class MenuAwal
     'sebagian Tutorial ada disini  https://forum.xda-developers.com/showthread.php?t=2315695
+    'Turorial Menjalankan Shell dan Mendapatkan Output nya https://stackoverflow.com/questions/8809194/get-the-output-of-a-shell-command-in-vb-net
+    'Tutorial Pesam Box http://rani-irsan.blogspot.com/2015/12/vbnet-bekerja-dengan-messagebox.html
+
     Private lstScan As Object
 
     Private Sub MetroComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs)
@@ -9,21 +12,19 @@ Public Class MenuAwal
     End Sub
 
     Private Sub MetroButton2_Click(sender As Object, e As EventArgs) Handles Btn_info_System.Click
-        Dim CMD As New Process
-        CMD.StartInfo.FileName = "adb\GetInformationSystem.bat"
-        CMD.StartInfo.UseShellExecute = False
-        CMD.StartInfo.RedirectStandardInput = True
-        CMD.StartInfo.RedirectStandardOutput = True
-        CMD.StartInfo.CreateNoWindow = False
-        CMD.Start()
-        Dim SW As System.IO.StreamWriter = CMD.StandardInput
-        Dim SR As System.IO.StreamReader = CMD.StandardOutput
-        SW.WriteLine("dir")
-        SW.WriteLine("Exit")
-        TextBox_Info.Text = SR.ReadToEnd
-        SW.Close()
-        SR.Close()
-        CMD.Close()
+        Dim oProcess As New Process()
+        Dim oStartInfo As New ProcessStartInfo("adb\adb.exe", "shell getprop")
+        oStartInfo.UseShellExecute = False
+        oStartInfo.RedirectStandardOutput = True
+        oProcess.StartInfo = oStartInfo
+        oProcess.Start()
+
+        Dim sOutput As String
+        Using oStreamReader As System.IO.StreamReader = oProcess.StandardOutput
+            sOutput = oStreamReader.ReadToEnd()
+        End Using
+        Console.WriteLine(sOutput)
+        TextBox_Info.Text = sOutput
     End Sub
 
     Private Sub Btn_License_Click(sender As Object, e As EventArgs) Handles Btn_License.Click
@@ -32,45 +33,61 @@ Public Class MenuAwal
     End Sub
 
     Private Sub MetroButton7_Click(sender As Object, e As EventArgs) Handles Btn_Check.Click
+        Dim x As Object = MessageBox.Show("Are You In Fastboot Mode?", "Confirmation",
+                         MessageBoxButtons.YesNoCancel,
+                         MessageBoxIcon.Question)
 
-        'TextBox_Info.Text = C(Shell("""ADB\adb.exe"" devices", AppWinStyle.NormalFocus, True, 30000))
-        'TextBox_Info.Text = CStr(Shell("""ADB\fastboot.exe"" devices", AppWinStyle.NormalFocus, True, 30000))
-        Dim CMD As New Process
-        CMD.StartInfo.FileName = " adb\DeviceCheck.bat"
-        CMD.StartInfo.UseShellExecute = False
-        CMD.StartInfo.RedirectStandardInput = True
-        CMD.StartInfo.RedirectStandardOutput = True
-        CMD.StartInfo.CreateNoWindow = False
-        CMD.Start()
-        Dim SW As System.IO.StreamWriter = CMD.StandardInput
-        Dim SR As System.IO.StreamReader = CMD.StandardOutput
-        SW.WriteLine("dir")
-        SW.WriteLine("Exit")
-        TextBox_Info.Text = SR.ReadToEnd
-        SW.Close()
-        SR.Close()
-        CMD.Close()
+        If x = System.Windows.Forms.DialogResult.No Then
+            Dim oProcess As New Process()
+            Dim oStartInfo As New ProcessStartInfo("adb\adb.exe", "devices")
+            oStartInfo.UseShellExecute = False
+            oStartInfo.RedirectStandardOutput = True
+            oProcess.StartInfo = oStartInfo
+            oProcess.Start()
+
+            Dim sOutput As String
+            Using oStreamReader As System.IO.StreamReader = oProcess.StandardOutput
+                sOutput = oStreamReader.ReadToEnd()
+            End Using
+            Console.WriteLine(sOutput)
+            TextBox_Info.Text = sOutput
+
+        ElseIf x = System.Windows.Forms.DialogResult.Yes Then
+
+            Dim oProcess As New Process()
+            Dim oStartInfo As New ProcessStartInfo("adb\fastboot.exe", "devices")
+            oStartInfo.UseShellExecute = False
+            oStartInfo.RedirectStandardOutput = True
+            oProcess.StartInfo = oStartInfo
+            oProcess.Start()
+
+            Dim sOutput As String
+            Using oStreamReader As System.IO.StreamReader = oProcess.StandardOutput
+                sOutput = oStreamReader.ReadToEnd()
+            End Using
+            Console.WriteLine(sOutput)
+            TextBox_Info.Text = sOutput
+        Else
+            '' tidak ada karena buat cancel
+        End If
 
 
     End Sub
 
     Private Sub MetroButton1_Click(sender As Object, e As EventArgs) Handles Btn_Info_Bootloader.Click
-        Dim CMD As New Process
-        'CMD.StartInfo.FileName = " c:\Program Files\Aone.id Oprek Tools\Script\GetInformationBootloader.bat"
-        CMD.StartInfo.FileName = " adb\GetInformationBootloader.bat"
-        CMD.StartInfo.UseShellExecute = False
-        CMD.StartInfo.RedirectStandardInput = True
-        CMD.StartInfo.RedirectStandardOutput = True
-        CMD.StartInfo.CreateNoWindow = False
-        CMD.Start()
-        Dim SW As System.IO.StreamWriter = CMD.StandardInput
-        Dim SR As System.IO.StreamReader = CMD.StandardOutput
-        SW.WriteLine("dir")
-        SW.WriteLine("Exit")
-        TextBox_Info.Text = SR.ReadToEnd
-        SW.Close()
-        SR.Close()
-        CMD.Close()
+        Dim oProcess As New Process()
+        Dim oStartInfo As New ProcessStartInfo("adb\fastboot.exe", "getvar all ")
+        oStartInfo.UseShellExecute = False
+        oStartInfo.RedirectStandardOutput = True
+        oProcess.StartInfo = oStartInfo
+        oProcess.Start()
+
+        Dim sOutput As String
+        Using oStreamReader As System.IO.StreamReader = oProcess.StandardOutput
+            sOutput = oStreamReader.ReadToEnd()
+        End Using
+        Console.WriteLine(sOutput)
+        TextBox_Info.Text = sOutput
     End Sub
 
     Private Sub Btn_Save_Info_Click(sender As Object, e As EventArgs) Handles Btn_Save_Info.Click
@@ -92,80 +109,11 @@ Public Class MenuAwal
     End Sub
 
     Private Sub Btn_Dmseg_Click(sender As Object, e As EventArgs) Handles Btn_Dmseg.Click
-        Dim CMD As New Process
-        CMD.StartInfo.FileName = " adb\GetDmesg.bat"
-        CMD.StartInfo.UseShellExecute = False
-        CMD.StartInfo.RedirectStandardInput = True
-        CMD.StartInfo.RedirectStandardOutput = True
-        CMD.StartInfo.CreateNoWindow = False
-        CMD.Start()
-        Dim SW As System.IO.StreamWriter = CMD.StandardInput
-        Dim SR As System.IO.StreamReader = CMD.StandardOutput
-        SW.WriteLine("dir")
-        SW.WriteLine("Exit")
-        TextBox_Info.Text = SR.ReadToEnd
-        SW.Close()
-        SR.Close()
-        CMD.Close()
+        Shell("""ADB\adb.exe"" logcat >log.text", AppWinStyle.NormalFocus, True, 30000)
     End Sub
 
     Private Sub Btn_Logcat_Click(sender As Object, e As EventArgs) Handles Btn_Logcat.Click
-        Dim CMD As New Process
-        CMD.StartInfo.FileName = " adb\Getlogcat.bat"
-        CMD.StartInfo.UseShellExecute = False
-        CMD.StartInfo.RedirectStandardInput = True
-        CMD.StartInfo.RedirectStandardOutput = True
-        CMD.StartInfo.CreateNoWindow = False
-        CMD.Start()
-        Dim SW As System.IO.StreamWriter = CMD.StandardInput
-        Dim SR As System.IO.StreamReader = CMD.StandardOutput
-        SW.WriteLine("dir")
-        SW.WriteLine("Exit")
-        TextBox_Info.Text = SR.ReadToEnd
-        SW.Close()
-        SR.Close()
-        CMD.Close()
-    End Sub
-
-    Private Sub MenuAwal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'Mendeteksi Foldeer Jika tidak ada folder Adb Membuat folder
-        If Not Directory.Exists("Adb") Then
-            Directory.CreateDirectory("Adb")
-
-            'Mendeteksi Adb Jika tidak Ada Akan Menggunakan Default Adb yang ada di resource
-            If Not File.Exists("Adb\adb.exe") Then
-                File.WriteAllBytes("Adb\adb.exe", My.Resources.adb)
-            End If
-            If Not File.Exists("Adb\AdbWinApi.dll") Then
-                File.WriteAllBytes("Adb\AdbWinApi.dll", My.Resources.AdbWinApi)
-            End If
-            If Not File.Exists("Adb\AdbWinUsbApi.dll") Then
-                File.WriteAllBytes("Adb\AdbWinUsbApi.dll", My.Resources.AdbWinUsbApi)
-            End If
-            If Not File.Exists("Adb\fastboot.exe") Then
-                File.WriteAllBytes("Adb\fastboot.exe", My.Resources.fastboot)
-            End If
-
-            ''File Batchfile
-            If Not File.Exists("Adb\CheckActiveSlot.bat") Then
-                File.WriteAllText("Adb\CheckActiveSlot.bat", My.Resources.CheckActiveSlot)
-            End If
-            If Not File.Exists("Adb\DeviceCheck.bat") Then
-                File.WriteAllText("Adb\DeviceCheck.bat", My.Resources.DeviceCheck)
-            End If
-            If Not File.Exists("Adb\GetDmesg.bat") Then
-                File.WriteAllText("Adb\GetDmesg.bat", My.Resources.GetDmesg)
-            End If
-            If Not File.Exists("Adb\GetInformationBootloader.bat") Then
-                File.WriteAllText("Adb\GetInformationBootloader.bat", My.Resources.GetInformationBootloader)
-            End If
-            If Not File.Exists("Adb\GetInformationSystem.bat") Then
-                File.WriteAllText("Adb\GetInformationSystem.bat", My.Resources.GetInformationSystem)
-            End If
-            If Not File.Exists("Adb\Getlogcat.bat") Then
-                File.WriteAllText("Adb\Getlogcat.bat", My.Resources.Getlogcat)
-            End If
-        End If
+        Shell("""ADB\adb.exe"" shell su -c dmesg >logdmseg.text", AppWinStyle.NormalFocus, True, 30000)
     End Sub
 
     Private Sub Btn_rbt_System_Click(sender As Object, e As EventArgs) Handles Btn_rbt_System.Click
@@ -174,30 +122,30 @@ Public Class MenuAwal
     End Sub
 
     Private Sub Btn_rbt_Bootloader_Click(sender As Object, e As EventArgs) Handles Btn_rbt_Bootloader.Click
-        Shell("""ADB\adb.exe"" reboot bootloader", AppWinStyle.NormalFocus, True, 30000)
-        Shell("""ADB\fastboot.exe"" reboot", AppWinStyle.NormalFocus, True, 30000)
+        Shell("""Adb\adb.exe"" reboot bootloader", AppWinStyle.NormalFocus, True, 30000)
+        Shell("""Adb\fastboot.exe"" reboot", AppWinStyle.NormalFocus, True, 30000)
     End Sub
 
     Private Sub Btn_rbt_Recovery_Click(sender As Object, e As EventArgs) Handles Btn_rbt_Recovery.Click
-        Shell("""ADB\adb.exe"" reboot recovery", AppWinStyle.NormalFocus, True, 30000)
+        Shell("""Adb\adb.exe"" reboot recovery", AppWinStyle.NormalFocus, True, 30000)
     End Sub
 
     Private Sub Btn_rbt_Edl_Click(sender As Object, e As EventArgs) Handles Btn_rbt_Edl.Click
-        Shell("""ADB\adb.exe"" reboot edl", AppWinStyle.NormalFocus, True, 30000)
-        Shell("""ADB\fastboot.exe"" oem edl", AppWinStyle.NormalFocus, True, 30000)
+        Shell("""Adb\adb.exe"" reboot edl", AppWinStyle.NormalFocus, True, 30000)
+        Shell("""Adb\fastboot.exe"" oem edl", AppWinStyle.NormalFocus, True, 30000)
     End Sub
 
     Private Sub Btn_CHG_SlotA_Click(sender As Object, e As EventArgs) Handles Btn_CHG_SlotA.Click
-        Shell("""ADB\fastboot.exe"" --set-active=a", AppWinStyle.NormalFocus, True, 30000)
+        Shell("""Adb\fastboot.exe"" --set-active=a", AppWinStyle.NormalFocus, True, 30000)
     End Sub
 
     Private Sub Btn_CHG_SlotB_Click(sender As Object, e As EventArgs) Handles Btn_CHG_SlotB.Click
-        Shell("""ADB\fastboot.exe"" --set-active=b", AppWinStyle.NormalFocus, True, 30000)
+        Shell("""Adb\fastboot.exe"" --set-active=b", AppWinStyle.NormalFocus, True, 30000)
     End Sub
 
     Private Sub Btn_Check_CurrentSlot_Click(sender As Object, e As EventArgs) Handles Btn_Check_CurrentSlot.Click
         Dim CMD As New Process
-        CMD.StartInfo.FileName = " adb\CheckActiveSlot.bat"
+        CMD.StartInfo.FileName = "adb\CheckActiveSlot.bat"
         CMD.StartInfo.UseShellExecute = False
         CMD.StartInfo.RedirectStandardInput = True
         CMD.StartInfo.RedirectStandardOutput = True
@@ -243,21 +191,21 @@ Public Class MenuAwal
     End Sub
 
     Private Sub Btn_AdbRestart_Click(sender As Object, e As EventArgs) Handles Btn_AdbRestart.Click
-        Shell("""ADB\adb.exe"" kill-server", AppWinStyle.NormalFocus, True, 30000)
+        Shell("""Adb\adb.exe"" kill-server", AppWinStyle.NormalFocus, True, 30000)
         System.Threading.Thread.Sleep(3000)
-        Shell("""ADB\adb.exe"" start-server", AppWinStyle.NormalFocus, True, 30000)
+        Shell("""Adb\adb.exe"" start-server", AppWinStyle.NormalFocus, True, 30000)
 
     End Sub
 
     Private Sub Btn_Frp_Click(sender As Object, e As EventArgs) Handles Btn_Frp.Click
-        Dim x As Object = MessageBox.Show("Are you sure?", "onfirmation
+        Dim x As Object = MessageBox.Show("Are you sure?", "Confirmation
 
 ",
                          MessageBoxButtons.OKCancel,
                          MessageBoxIcon.Question)
 
         If x = System.Windows.Forms.DialogResult.OK Then
-            Shell("""ADB\fastboot.exe"" erase config", AppWinStyle.NormalFocus, True, 30000)
+            Shell("""Adb\fastboot.exe"" erase config", AppWinStyle.NormalFocus, True, 30000)
         ElseIf x = system.Windows.Forms.DialogResult.Cancel Then
         End If
     End Sub
@@ -267,7 +215,7 @@ Public Class MenuAwal
             MsgBox("Push Location Empty Returned To Default Location Try Again!", MessageBoxIcon.Exclamation, "Warning!")
             TxtBox_Push.Text = "/mnt/sdcard/"
         Else
-            Shell("""ADB\adb.exe"" push " & List_Push.SelectedItem & " " & TxtBox_Push.Text, AppWinStyle.NormalFocus, True, 30000)
+            Shell("""Adb\adb.exe"" push " & List_Push.SelectedItem & " " & TxtBox_Push.Text, AppWinStyle.NormalFocus, True, 30000)
         End If
     End Sub
 
@@ -279,11 +227,71 @@ Public Class MenuAwal
         If List_Apk.Text = String.Empty Then
             MsgBox(" No APK Selected!", MessageBoxIcon.Exclamation, "Warning!")
         Else
-            Shell("""ADB\adb.exe"" install " & List_Apk.SelectedItem.ToString, AppWinStyle.NormalFocus, True, 30000)
+            Shell("""Adb\adb.exe"" install " & List_Apk.SelectedItem.ToString, AppWinStyle.NormalFocus, True, 30000)
+        End If
+    End Sub
+    Private Sub Btn_Recov_Boot_Click(sender As Object, e As EventArgs) Handles Btn_Recov_Boot.Click
+        If TxtBox_Img.Text = String.Empty Then
+            MsgBox("Please Select Img File First!", MessageBoxIcon.Exclamation, "Warning!")
+        Else
+            Shell("""Adb\fastboot.exe"" boot " & TxtBox_Img.Text.ToString, AppWinStyle.NormalFocus, True, 30000)
         End If
     End Sub
 
-    Private Sub Tab_deviceCheck_Click(sender As Object, e As EventArgs) Handles Tab_deviceCheck.Click
+    Private Sub MetroButton1_Click_1(sender As Object, e As EventArgs) Handles Btn_FileImgBrowse.Click
+        Using ofd As New OpenFileDialog
+            ofd.Filter = "Img File (*IMG*)|*IMG*"
+            ofd.Title = "Select File IMG"
 
+            If ofd.ShowDialog() = System.Windows.Forms.DialogResult.OK Then
+                Me.TxtBox_Img.Text = ofd.FileName
+            End If
+        End Using
+    End Sub
+
+    Private Sub MenuAwal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'Mendeteksi Foldeer Jika tidak ada folder Adb Membuat folder
+        If Not Directory.Exists("Adb") Then
+            Directory.CreateDirectory("Adb")
+
+            'Mendeteksi Adb Jika tidak Ada Akan Menggunakan Default Adb yang ada di resource
+            If Not File.Exists("Adb\adb.exe") Then
+                File.WriteAllBytes("Adb\adb.exe", My.Resources.adb)
+            End If
+            If Not File.Exists("Adb\AdbWinApi.dll") Then
+                File.WriteAllBytes("Adb\AdbWinApi.dll", My.Resources.AdbWinApi)
+            End If
+            If Not File.Exists("Adb\AdbWinUsbApi.dll") Then
+                File.WriteAllBytes("Adb\AdbWinUsbApi.dll", My.Resources.AdbWinUsbApi)
+            End If
+            If Not File.Exists("Adb\fastboot.exe") Then
+                File.WriteAllBytes("Adb\fastboot.exe", My.Resources.fastboot)
+            End If
+        End If
+    End Sub
+
+    Private Sub Btn_Recov_Flash_Click(sender As Object, e As EventArgs) Handles Btn_Recov_Flash.Click
+        If TxtBox_Img.Text = String.Empty Then
+            MsgBox("Please Select Img File First!", MessageBoxIcon.Exclamation, "Warning!")
+        Else
+            Shell("""Adb\fastboot.exe"" flash " & TxtBox_Img.Text.ToString, AppWinStyle.NormalFocus, True, 30000)
+        End If
+    End Sub
+
+    Private Sub Btn_Installed_App_Click(sender As Object, e As EventArgs) Handles Btn_Installed_App.Click
+        'Menampilkan App yang telah Di install user
+        Dim oProcess As New Process()
+        Dim oStartInfo As New ProcessStartInfo("adb\adb.exe", "shell pm list packages -3 ")
+        oStartInfo.UseShellExecute = False
+        oStartInfo.RedirectStandardOutput = True
+        oProcess.StartInfo = oStartInfo
+        oProcess.Start()
+
+        Dim sOutput As String
+        Using oStreamReader As System.IO.StreamReader = oProcess.StandardOutput
+            sOutput = oStreamReader.ReadToEnd()
+        End Using
+        Console.WriteLine(sOutput)
+        TextBox_Info.Text = sOutput
     End Sub
 End Class

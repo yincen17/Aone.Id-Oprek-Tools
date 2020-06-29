@@ -128,12 +128,6 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <None Include="bin\Debug\ADB\CheckActiveSlot.bat" />
-    <None Include="bin\Debug\ADB\DeviceCheck.bat" />
-    <None Include="bin\Debug\ADB\GetDmesg.bat" />
-    <None Include="bin\Debug\ADB\GetInformationBootloader.bat" />
-    <None Include="bin\Debug\ADB\GetInformationSystem.bat" />
-    <None Include="bin\Debug\ADB\Getlogcat.bat" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
@@ -145,6 +139,8 @@
     </None>
     <None Include="App.config" />
     <None Include="packages.config" />
+    <None Include="Resources\Get App Installed.bat" />
+    <None Include="Resources\GetAppInstalled.bat" />
     <None Include="Resources\GetDmesg.bat" />
     <None Include="Resources\GetInformationBootloader.bat" />
     <None Include="Resources\GetInformationSystem.bat" />
@@ -158,6 +154,9 @@
     <None Include="Resources\AdbWinUsbApi.dll" />
     <None Include="Resources\AdbWinApi.dll" />
     <None Include="Resources\adb.exe" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\Debug\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

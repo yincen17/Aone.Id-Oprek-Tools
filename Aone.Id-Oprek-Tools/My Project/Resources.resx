@@ -127,25 +127,7 @@
   <data name="AdbWinUsbApi" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\AdbWinUsbApi.dll;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="CheckActiveSlot" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\CheckActiveSlot.bat;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
-  </data>
-  <data name="DeviceCheck" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\DeviceCheck.bat;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
-  </data>
   <data name="fastboot" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\fastboot.exe;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="GetDmesg" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\GetDmesg.bat;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
-  </data>
-  <data name="GetInformationBootloader" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\GetInformationBootloader.bat;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
-  </data>
-  <data name="GetInformationSystem" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\GetInformationSystem.bat;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
-  </data>
-  <data name="Getlogcat" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Getlogcat.bat;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
 </root>

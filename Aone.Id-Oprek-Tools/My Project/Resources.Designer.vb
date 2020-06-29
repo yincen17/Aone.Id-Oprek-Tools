@@ -91,86 +91,12 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to @echo off
-        '''title Cek Slot
-        '''fastboot getvar all
-        '''pause
-        '''exit.
-        '''</summary>
-        Friend ReadOnly Property CheckActiveSlot() As String
-            Get
-                Return ResourceManager.GetString("CheckActiveSlot", resourceCulture)
-            End Get
-        End Property
-        
-        '''<summary>
-        '''  Looks up a localized string similar to @echo off
-        '''title Checking Connection
-        '''fastboot devices
-        '''adb devices
-        '''.
-        '''</summary>
-        Friend ReadOnly Property DeviceCheck() As String
-            Get
-                Return ResourceManager.GetString("DeviceCheck", resourceCulture)
-            End Get
-        End Property
-        
-        '''<summary>
         '''  Looks up a localized resource of type System.Byte[].
         '''</summary>
         Friend ReadOnly Property fastboot() As Byte()
             Get
                 Dim obj As Object = ResourceManager.GetObject("fastboot", resourceCulture)
                 Return CType(obj,Byte())
-            End Get
-        End Property
-        
-        '''<summary>
-        '''  Looks up a localized string similar to @echo off
-        '''title Dmesg
-        '''adb shell su -c dmesg .
-        '''</summary>
-        Friend ReadOnly Property GetDmesg() As String
-            Get
-                Return ResourceManager.GetString("GetDmesg", resourceCulture)
-            End Get
-        End Property
-        
-        '''<summary>
-        '''  Looks up a localized string similar to @echo off
-        '''title Ghatering Information
-        '''fastboot getvar all 
-        '''
-        '''.
-        '''</summary>
-        Friend ReadOnly Property GetInformationBootloader() As String
-            Get
-                Return ResourceManager.GetString("GetInformationBootloader", resourceCulture)
-            End Get
-        End Property
-        
-        '''<summary>
-        '''  Looks up a localized string similar to @echo off
-        '''title Ghatering Information
-        '''adb shell getprop
-        '''
-        '''.
-        '''</summary>
-        Friend ReadOnly Property GetInformationSystem() As String
-            Get
-                Return ResourceManager.GetString("GetInformationSystem", resourceCulture)
-            End Get
-        End Property
-        
-        '''<summary>
-        '''  Looks up a localized string similar to @echo off
-        '''title logcat
-        '''adb logcat.
-        '''</summary>
-        Friend ReadOnly Property Getlogcat() As String
-            Get
-                Return ResourceManager.GetString("Getlogcat", resourceCulture)
             End Get
         End Property
     End Module
