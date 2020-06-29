@@ -117,48 +117,79 @@ Public Class MenuAwal
     End Sub
 
     Private Sub Btn_rbt_System_Click(sender As Object, e As EventArgs) Handles Btn_rbt_System.Click
-        Shell("""ADB\adb.exe"" reboot system", AppWinStyle.NormalFocus, True, 30000)
-        Shell("""ADB\fastboot.exe"" reboot", AppWinStyle.NormalFocus, True, 30000)
+        Dim x As Object = MessageBox.Show("Are You In Fastboot Mode?", "Confirmation Position!",
+                         MessageBoxButtons.YesNoCancel,
+                         MessageBoxIcon.Question)
+
+        If x = System.Windows.Forms.DialogResult.No Then
+            Shell("""ADB\adb.exe"" reboot system", AppWinStyle.NormalFocus, True, 30000)
+        ElseIf x = System.Windows.Forms.DialogResult.Yes Then
+            Shell("""ADB\fastboot.exe"" reboot", AppWinStyle.NormalFocus, True, 30000)
+        Else
+            'kosong karena cancel
+        End If
     End Sub
 
     Private Sub Btn_rbt_Bootloader_Click(sender As Object, e As EventArgs) Handles Btn_rbt_Bootloader.Click
-        Shell("""Adb\adb.exe"" reboot bootloader", AppWinStyle.NormalFocus, True, 30000)
-        Shell("""Adb\fastboot.exe"" reboot", AppWinStyle.NormalFocus, True, 30000)
+        Dim x As Object = MessageBox.Show("Are You In System mode ?", "Confirmation Position!",
+                   MessageBoxButtons.YesNo,
+                   MessageBoxIcon.Question)
+        If x = System.Windows.Forms.DialogResult.Yes Then
+            Shell("""Adb\adb.exe"" reboot bootloader", AppWinStyle.NormalFocus, True, 30000)
+        Else
+            'kosong karena no ngak jadi
+        End If
     End Sub
 
     Private Sub Btn_rbt_Recovery_Click(sender As Object, e As EventArgs) Handles Btn_rbt_Recovery.Click
-        Shell("""Adb\adb.exe"" reboot recovery", AppWinStyle.NormalFocus, True, 30000)
+        Dim x As Object = MessageBox.Show("Are You In System mode ?", "Confirmation Position!",
+                   MessageBoxButtons.YesNo,
+                   MessageBoxIcon.Question)
+        If x = System.Windows.Forms.DialogResult.Yes Then
+            Shell("""Adb\adb.exe"" reboot recovery", AppWinStyle.NormalFocus, True, 30000)
+        Else
+            'kosong karena no ngak jadi
+        End If
     End Sub
 
     Private Sub Btn_rbt_Edl_Click(sender As Object, e As EventArgs) Handles Btn_rbt_Edl.Click
-        Shell("""Adb\adb.exe"" reboot edl", AppWinStyle.NormalFocus, True, 30000)
-        Shell("""Adb\fastboot.exe"" oem edl", AppWinStyle.NormalFocus, True, 30000)
+        Dim x As Object = MessageBox.Show("Are You In Fastboot Mode?", "Confirmation Position!",
+                         MessageBoxButtons.YesNoCancel,
+                         MessageBoxIcon.Question)
+
+        If x = System.Windows.Forms.DialogResult.No Then
+            Shell("""Adb\adb.exe"" reboot edl", AppWinStyle.NormalFocus, True, 30000)
+        ElseIf x = System.Windows.Forms.DialogResult.Yes Then
+            Shell("""Adb\fastboot.exe"" oem edl", AppWinStyle.NormalFocus, True, 30000)
+        Else
+            'kosong karena cancel
+        End If
     End Sub
 
     Private Sub Btn_CHG_SlotA_Click(sender As Object, e As EventArgs) Handles Btn_CHG_SlotA.Click
-        Shell("""Adb\fastboot.exe"" --set-active=a", AppWinStyle.NormalFocus, True, 30000)
+        Dim x As Object = MessageBox.Show("Are You In Fastboot mode ?", "Confirmation Position!",
+                   MessageBoxButtons.YesNo,
+                   MessageBoxIcon.Question)
+        If x = System.Windows.Forms.DialogResult.Yes Then
+            Shell("""Adb\fastboot.exe"" --set-active=a", AppWinStyle.NormalFocus, True, 30000)
+        Else
+            'kosong karena no ngak jadi
+        End If
     End Sub
 
     Private Sub Btn_CHG_SlotB_Click(sender As Object, e As EventArgs) Handles Btn_CHG_SlotB.Click
-        Shell("""Adb\fastboot.exe"" --set-active=b", AppWinStyle.NormalFocus, True, 30000)
+        Dim x As Object = MessageBox.Show("Are You In Fastboot mode ?", "Confirmation Position!",
+                   MessageBoxButtons.YesNo,
+                   MessageBoxIcon.Question)
+        If x = System.Windows.Forms.DialogResult.Yes Then
+            Shell("""Adb\fastboot.exe"" --set-active=b", AppWinStyle.NormalFocus, True, 30000)
+        Else
+            'kosong karena no ngak jadi
+        End If
     End Sub
 
     Private Sub Btn_Check_CurrentSlot_Click(sender As Object, e As EventArgs) Handles Btn_Check_CurrentSlot.Click
-        Dim CMD As New Process
-        CMD.StartInfo.FileName = "adb\CheckActiveSlot.bat"
-        CMD.StartInfo.UseShellExecute = False
-        CMD.StartInfo.RedirectStandardInput = True
-        CMD.StartInfo.RedirectStandardOutput = True
-        CMD.StartInfo.CreateNoWindow = False
-        CMD.Start()
-        Dim SW As System.IO.StreamWriter = CMD.StandardInput
-        Dim SR As System.IO.StreamReader = CMD.StandardOutput
-        SW.WriteLine("dir")
-        SW.WriteLine("Exit")
-        TextBox_Info.Text = SR.ReadToEnd
-        SW.Close()
-        SR.Close()
-        CMD.Close()
+        MsgBox("Goto Tab Device Check, In Device Info Press Bootloader You Will Know You Current Slot!", MessageBoxIcon.Information, "Info!")
     End Sub
 
     Private Sub Btn_Apk_Install_Click(sender As Object, e As EventArgs) Handles Btn_Apk_SELECT.Click
@@ -293,5 +324,132 @@ Public Class MenuAwal
         End Using
         Console.WriteLine(sOutput)
         TextBox_Info.Text = sOutput
+    End Sub
+
+    Private Sub MetroCheckBox1_CheckedChanged(sender As Object, e As EventArgs) Handles Chkbox_Oem.CheckedChanged
+        ''berlaku 1 tidak 3 opsi jadi jika user menceklist 1 checkbox yang lain nya akan tidak terchecklist
+        If Chkbox_Oem.Checked Then
+            Chkbox_Flashing_Critical.CheckState = CheckState.Unchecked
+            Chkbox_Flashing.CheckState = CheckState.Unchecked
+        End If
+    End Sub
+
+    Private Sub Chkbox_Flashing_Critical_CheckedChanged(sender As Object, e As EventArgs) Handles Chkbox_Flashing_Critical.CheckedChanged
+        ''berlaku 1 tidak 3 opsi jadi jika user menceklist 1 checkbox yang lain nya akan tidak terchecklist
+        If Chkbox_Flashing_Critical.Checked Then
+            Chkbox_Oem.CheckState = CheckState.Unchecked
+            Chkbox_Flashing.CheckState = CheckState.Unchecked
+        End If
+    End Sub
+
+    Private Sub Btn_Unlock_Click(sender As Object, e As EventArgs) Handles Btn_Unlock.Click
+
+        If Chkbox_Oem.Checked Then
+            Dim oProcess As New Process()
+            Dim oStartInfo As New ProcessStartInfo("adb\fastboot.exe", "oem unlock")
+            oStartInfo.UseShellExecute = False
+            oStartInfo.RedirectStandardOutput = True
+            oProcess.StartInfo = oStartInfo
+            oProcess.Start()
+
+            Dim sOutput As String
+            Using oStreamReader As System.IO.StreamReader = oProcess.StandardOutput
+                sOutput = oStreamReader.ReadToEnd()
+            End Using
+            Console.WriteLine(sOutput)
+            TxtBox_Bootloader.Text = sOutput
+
+        ElseIf Chkbox_Flashing_Critical.Checked Then
+            Dim pProcess As New Process()
+            Dim pStartInfo As New ProcessStartInfo("adb\fastboot.exe", "flashing unlock_critical")
+            pStartInfo.UseShellExecute = False
+            pStartInfo.RedirectStandardOutput = True
+            pProcess.StartInfo = pStartInfo
+            pProcess.Start()
+
+            Dim pOutput As String
+            Using oStreamReader As System.IO.StreamReader = pProcess.StandardOutput
+                pOutput = oStreamReader.ReadToEnd()
+            End Using
+            Console.WriteLine(pOutput)
+            TxtBox_Bootloader.Text = pOutput
+
+        ElseIf Chkbox_Flashing.Checked Then
+            Dim pProcess As New Process()
+            Dim pStartInfo As New ProcessStartInfo("adb\fastboot.exe", "flashing unlock")
+            pStartInfo.UseShellExecute = False
+            pStartInfo.RedirectStandardOutput = True
+            pProcess.StartInfo = pStartInfo
+            pProcess.Start()
+
+            Dim pOutput As String
+            Using oStreamReader As System.IO.StreamReader = pProcess.StandardOutput
+                pOutput = oStreamReader.ReadToEnd()
+            End Using
+            Console.WriteLine(pOutput)
+            TxtBox_Bootloader.Text = pOutput
+        Else
+            MsgBox("Please Select Option Frist !", MessageBoxIcon.Exclamation, "Warning!")
+
+        End If
+
+    End Sub
+
+    Private Sub Btn_Lock_Click(sender As Object, e As EventArgs) Handles Btn_Lock.Click
+        If Chkbox_Oem.Checked Then
+            Dim oProcess As New Process()
+            Dim oStartInfo As New ProcessStartInfo("adb\fastboot.exe", "oem lock")
+            oStartInfo.UseShellExecute = False
+            oStartInfo.RedirectStandardOutput = True
+            oProcess.StartInfo = oStartInfo
+            oProcess.Start()
+
+            Dim sOutput As String
+            Using oStreamReader As System.IO.StreamReader = oProcess.StandardOutput
+                sOutput = oStreamReader.ReadToEnd()
+            End Using
+            Console.WriteLine(sOutput)
+            TxtBox_Bootloader.Text = sOutput
+
+        ElseIf Chkbox_Flashing_Critical.Checked Then
+            Dim pProcess As New Process()
+            Dim pStartInfo As New ProcessStartInfo("adb\fastboot.exe", "flashing lock_critical")
+            pStartInfo.UseShellExecute = False
+            pStartInfo.RedirectStandardOutput = True
+            pProcess.StartInfo = pStartInfo
+            pProcess.Start()
+
+            Dim pOutput As String
+            Using oStreamReader As System.IO.StreamReader = pProcess.StandardOutput
+                pOutput = oStreamReader.ReadToEnd()
+            End Using
+            Console.WriteLine(pOutput)
+            TxtBox_Bootloader.Text = pOutput
+
+        ElseIf Chkbox_Flashing.Checked Then
+            Dim pProcess As New Process()
+            Dim pStartInfo As New ProcessStartInfo("adb\fastboot.exe", "flashing lock")
+            pStartInfo.UseShellExecute = False
+            pStartInfo.RedirectStandardOutput = True
+            pProcess.StartInfo = pStartInfo
+            pProcess.Start()
+
+            Dim pOutput As String
+            Using oStreamReader As System.IO.StreamReader = pProcess.StandardOutput
+                pOutput = oStreamReader.ReadToEnd()
+            End Using
+            Console.WriteLine(pOutput)
+            TxtBox_Bootloader.Text = pOutput
+        Else
+            MsgBox("Please Select Option Frist !", MessageBoxIcon.Exclamation, "Warning!")
+        End If
+    End Sub
+
+    Private Sub Chkbox_Flashing_CheckedChanged(sender As Object, e As EventArgs) Handles Chkbox_Flashing.CheckedChanged
+        ''berlaku 1 tidak 3 opsi jadi jika user menceklist 1 checkbox yang lain nya akan tidak terchecklist
+        If Chkbox_Flashing.Checked Then
+            Chkbox_Flashing_Critical.CheckState = CheckState.Unchecked
+            Chkbox_Oem.CheckState = CheckState.Unchecked
+        End If
     End Sub
 End Class
