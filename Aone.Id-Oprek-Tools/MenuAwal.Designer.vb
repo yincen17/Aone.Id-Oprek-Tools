@@ -47,6 +47,8 @@ Partial Class MenuAwal
         Me.Btn_rbt_Recovery = New MetroFramework.Controls.MetroButton()
         Me.Btn_rbt_System = New MetroFramework.Controls.MetroButton()
         Me.Tab_Oem = New MetroFramework.Controls.MetroTabPage()
+        Me.Chkbox_Flashing = New MetroFramework.Controls.MetroCheckBox()
+        Me.Lbel_Bootloader = New MetroFramework.Controls.MetroLabel()
         Me.Lbel_Modefastboot1 = New MetroFramework.Controls.MetroLabel()
         Me.TxtBox_Bootloader = New MetroFramework.Controls.MetroTextBox()
         Me.Chkbox_Flashing_Critical = New MetroFramework.Controls.MetroCheckBox()
@@ -73,7 +75,6 @@ Partial Class MenuAwal
         Me.List_Apk = New System.Windows.Forms.ListBox()
         Me.Btn_Apk_SELECT = New MetroFramework.Controls.MetroButton()
         Me.Tab_Misc = New MetroFramework.Controls.MetroTabPage()
-        Me.Btn_AdbSideload = New MetroFramework.Controls.MetroButton()
         Me.Btn_Frp = New MetroFramework.Controls.MetroButton()
         Me.Btn_AdbRestart = New MetroFramework.Controls.MetroButton()
         Me.Btn_DeviceManager = New MetroFramework.Controls.MetroButton()
@@ -83,8 +84,14 @@ Partial Class MenuAwal
         Me.Btn_Logcat = New MetroFramework.Controls.MetroButton()
         Me.Btn_Dmseg = New MetroFramework.Controls.MetroButton()
         Me.ColorDialog1 = New System.Windows.Forms.ColorDialog()
-        Me.Lbel_Bootloader = New MetroFramework.Controls.MetroLabel()
-        Me.Chkbox_Flashing = New MetroFramework.Controls.MetroCheckBox()
+        Me.Tab_Sideload = New MetroFramework.Controls.MetroTabPage()
+        Me.Btn_AdbSideload = New MetroFramework.Controls.MetroButton()
+        Me.TxtBox_Sideload = New MetroFramework.Controls.MetroTextBox()
+        Me.Lbl_SideloadLoncation = New MetroFramework.Controls.MetroLabel()
+        Me.Lbel_Sideload = New MetroFramework.Controls.MetroLabel()
+        Me.MetroLabel11 = New MetroFramework.Controls.MetroLabel()
+        Me.Btn_SelectFile = New MetroFramework.Controls.MetroButton()
+        Me.ChkBox_FlashModeUnlock = New MetroFramework.Controls.MetroCheckBox()
         Me.Tab_Menu.SuspendLayout()
         Me.Tab_Dashboard.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -95,6 +102,7 @@ Partial Class MenuAwal
         Me.Tab_Apk_Push.SuspendLayout()
         Me.Tab_Misc.SuspendLayout()
         Me.Tab_Log.SuspendLayout()
+        Me.Tab_Sideload.SuspendLayout()
         Me.SuspendLayout()
         '
         'Tab_Menu
@@ -105,11 +113,12 @@ Partial Class MenuAwal
         Me.Tab_Menu.Controls.Add(Me.Tab_Oem)
         Me.Tab_Menu.Controls.Add(Me.Tab_Recovery)
         Me.Tab_Menu.Controls.Add(Me.Tab_Apk_Push)
-        Me.Tab_Menu.Controls.Add(Me.Tab_Misc)
+        Me.Tab_Menu.Controls.Add(Me.Tab_Sideload)
         Me.Tab_Menu.Controls.Add(Me.Tab_Log)
+        Me.Tab_Menu.Controls.Add(Me.Tab_Misc)
         Me.Tab_Menu.Location = New System.Drawing.Point(3, 77)
         Me.Tab_Menu.Name = "Tab_Menu"
-        Me.Tab_Menu.SelectedIndex = 3
+        Me.Tab_Menu.SelectedIndex = 4
         Me.Tab_Menu.Size = New System.Drawing.Size(543, 259)
         Me.Tab_Menu.TabIndex = 0
         '
@@ -349,6 +358,25 @@ Partial Class MenuAwal
         Me.Tab_Oem.Text = "Bootloader"
         Me.Tab_Oem.VerticalScrollbarBarColor = True
         '
+        'Chkbox_Flashing
+        '
+        Me.Chkbox_Flashing.AutoSize = True
+        Me.Chkbox_Flashing.Location = New System.Drawing.Point(312, 79)
+        Me.Chkbox_Flashing.Name = "Chkbox_Flashing"
+        Me.Chkbox_Flashing.Size = New System.Drawing.Size(67, 15)
+        Me.Chkbox_Flashing.TabIndex = 16
+        Me.Chkbox_Flashing.Text = "Flashing"
+        Me.Chkbox_Flashing.UseVisualStyleBackColor = True
+        '
+        'Lbel_Bootloader
+        '
+        Me.Lbel_Bootloader.AutoSize = True
+        Me.Lbel_Bootloader.Location = New System.Drawing.Point(334, 25)
+        Me.Lbel_Bootloader.Name = "Lbel_Bootloader"
+        Me.Lbel_Bootloader.Size = New System.Drawing.Size(137, 19)
+        Me.Lbel_Bootloader.TabIndex = 15
+        Me.Lbel_Bootloader.Text = "Unlock / Lock Options"
+        '
         'Lbel_Modefastboot1
         '
         Me.Lbel_Modefastboot1.AutoSize = True
@@ -403,6 +431,7 @@ Partial Class MenuAwal
         '
         'Tab_Recovery
         '
+        Me.Tab_Recovery.Controls.Add(Me.ChkBox_FlashModeUnlock)
         Me.Tab_Recovery.Controls.Add(Me.Lbel_Modefastboot2)
         Me.Tab_Recovery.Controls.Add(Me.Btn_FileImgBrowse)
         Me.Tab_Recovery.Controls.Add(Me.MetroLabel10)
@@ -586,7 +615,6 @@ Partial Class MenuAwal
         '
         'Tab_Misc
         '
-        Me.Tab_Misc.Controls.Add(Me.Btn_AdbSideload)
         Me.Tab_Misc.Controls.Add(Me.Btn_Frp)
         Me.Tab_Misc.Controls.Add(Me.Btn_AdbRestart)
         Me.Tab_Misc.Controls.Add(Me.Btn_DeviceManager)
@@ -597,14 +625,6 @@ Partial Class MenuAwal
         Me.Tab_Misc.TabIndex = 7
         Me.Tab_Misc.Text = "Misc"
         Me.Tab_Misc.VerticalScrollbarBarColor = True
-        '
-        'Btn_AdbSideload
-        '
-        Me.Btn_AdbSideload.Location = New System.Drawing.Point(347, 46)
-        Me.Btn_AdbSideload.Name = "Btn_AdbSideload"
-        Me.Btn_AdbSideload.Size = New System.Drawing.Size(123, 29)
-        Me.Btn_AdbSideload.TabIndex = 11
-        Me.Btn_AdbSideload.Text = "ADB SIDELOAD"
         '
         'Btn_Frp
         '
@@ -678,24 +698,83 @@ Partial Class MenuAwal
         Me.Btn_Dmseg.TabIndex = 3
         Me.Btn_Dmseg.Text = "DMSEG "
         '
-        'Lbel_Bootloader
+        'Tab_Sideload
         '
-        Me.Lbel_Bootloader.AutoSize = True
-        Me.Lbel_Bootloader.Location = New System.Drawing.Point(334, 25)
-        Me.Lbel_Bootloader.Name = "Lbel_Bootloader"
-        Me.Lbel_Bootloader.Size = New System.Drawing.Size(137, 19)
-        Me.Lbel_Bootloader.TabIndex = 15
-        Me.Lbel_Bootloader.Text = "Unlock / Lock Options"
+        Me.Tab_Sideload.Controls.Add(Me.Btn_SelectFile)
+        Me.Tab_Sideload.Controls.Add(Me.MetroLabel11)
+        Me.Tab_Sideload.Controls.Add(Me.Lbel_Sideload)
+        Me.Tab_Sideload.Controls.Add(Me.Lbl_SideloadLoncation)
+        Me.Tab_Sideload.Controls.Add(Me.TxtBox_Sideload)
+        Me.Tab_Sideload.Controls.Add(Me.Btn_AdbSideload)
+        Me.Tab_Sideload.HorizontalScrollbarBarColor = True
+        Me.Tab_Sideload.Location = New System.Drawing.Point(4, 35)
+        Me.Tab_Sideload.Name = "Tab_Sideload"
+        Me.Tab_Sideload.Size = New System.Drawing.Size(535, 220)
+        Me.Tab_Sideload.TabIndex = 9
+        Me.Tab_Sideload.Text = "Sideload"
+        Me.Tab_Sideload.VerticalScrollbarBarColor = True
         '
-        'Chkbox_Flashing
+        'Btn_AdbSideload
         '
-        Me.Chkbox_Flashing.AutoSize = True
-        Me.Chkbox_Flashing.Location = New System.Drawing.Point(312, 79)
-        Me.Chkbox_Flashing.Name = "Chkbox_Flashing"
-        Me.Chkbox_Flashing.Size = New System.Drawing.Size(67, 15)
-        Me.Chkbox_Flashing.TabIndex = 16
-        Me.Chkbox_Flashing.Text = "Flashing"
-        Me.Chkbox_Flashing.UseVisualStyleBackColor = True
+        Me.Btn_AdbSideload.Location = New System.Drawing.Point(180, 146)
+        Me.Btn_AdbSideload.Name = "Btn_AdbSideload"
+        Me.Btn_AdbSideload.Size = New System.Drawing.Size(123, 29)
+        Me.Btn_AdbSideload.TabIndex = 12
+        Me.Btn_AdbSideload.Text = "ADB SIDELOAD"
+        '
+        'TxtBox_Sideload
+        '
+        Me.TxtBox_Sideload.Location = New System.Drawing.Point(98, 82)
+        Me.TxtBox_Sideload.Multiline = True
+        Me.TxtBox_Sideload.Name = "TxtBox_Sideload"
+        Me.TxtBox_Sideload.ReadOnly = True
+        Me.TxtBox_Sideload.Size = New System.Drawing.Size(291, 29)
+        Me.TxtBox_Sideload.TabIndex = 13
+        '
+        'Lbl_SideloadLoncation
+        '
+        Me.Lbl_SideloadLoncation.AutoSize = True
+        Me.Lbl_SideloadLoncation.Location = New System.Drawing.Point(3, 82)
+        Me.Lbl_SideloadLoncation.Name = "Lbl_SideloadLoncation"
+        Me.Lbl_SideloadLoncation.Size = New System.Drawing.Size(89, 19)
+        Me.Lbl_SideloadLoncation.TabIndex = 14
+        Me.Lbl_SideloadLoncation.Text = "File Loncation"
+        '
+        'Lbel_Sideload
+        '
+        Me.Lbel_Sideload.AutoSize = True
+        Me.Lbel_Sideload.Location = New System.Drawing.Point(181, 48)
+        Me.Lbel_Sideload.Name = "Lbel_Sideload"
+        Me.Lbel_Sideload.Size = New System.Drawing.Size(122, 19)
+        Me.Lbel_Sideload.TabIndex = 15
+        Me.Lbel_Sideload.Text = "Sideload File Select"
+        '
+        'MetroLabel11
+        '
+        Me.MetroLabel11.AutoSize = True
+        Me.MetroLabel11.Location = New System.Drawing.Point(-4, 201)
+        Me.MetroLabel11.Name = "MetroLabel11"
+        Me.MetroLabel11.Size = New System.Drawing.Size(184, 19)
+        Me.MetroLabel11.TabIndex = 16
+        Me.MetroLabel11.Text = "Only Work In Sideload Mode!"
+        '
+        'Btn_SelectFile
+        '
+        Me.Btn_SelectFile.Location = New System.Drawing.Point(395, 82)
+        Me.Btn_SelectFile.Name = "Btn_SelectFile"
+        Me.Btn_SelectFile.Size = New System.Drawing.Size(123, 29)
+        Me.Btn_SelectFile.TabIndex = 17
+        Me.Btn_SelectFile.Text = "Select File"
+        '
+        'ChkBox_FlashModeUnlock
+        '
+        Me.ChkBox_FlashModeUnlock.AutoSize = True
+        Me.ChkBox_FlashModeUnlock.Location = New System.Drawing.Point(407, 205)
+        Me.ChkBox_FlashModeUnlock.Name = "ChkBox_FlashModeUnlock"
+        Me.ChkBox_FlashModeUnlock.Size = New System.Drawing.Size(128, 15)
+        Me.ChkBox_FlashModeUnlock.TabIndex = 10
+        Me.ChkBox_FlashModeUnlock.Text = "Flash Mode = Allow"
+        Me.ChkBox_FlashModeUnlock.UseVisualStyleBackColor = True
         '
         'MenuAwal
         '
@@ -724,6 +803,8 @@ Partial Class MenuAwal
         Me.Tab_Apk_Push.PerformLayout()
         Me.Tab_Misc.ResumeLayout(False)
         Me.Tab_Log.ResumeLayout(False)
+        Me.Tab_Sideload.ResumeLayout(False)
+        Me.Tab_Sideload.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -781,7 +862,6 @@ Partial Class MenuAwal
     Friend WithEvents Lbel_Slect_IMG As MetroFramework.Controls.MetroLabel
     Friend WithEvents TxtBox_Img As MetroFramework.Controls.MetroTextBox
     Friend WithEvents MetroLabel10 As MetroFramework.Controls.MetroLabel
-    Friend WithEvents Btn_AdbSideload As MetroFramework.Controls.MetroButton
     Friend WithEvents Btn_FileImgBrowse As MetroFramework.Controls.MetroButton
     Friend WithEvents Btn_Recov_Boot As MetroFramework.Controls.MetroButton
     Friend WithEvents TxtBox_Bootloader As MetroFramework.Controls.MetroTextBox
@@ -791,4 +871,12 @@ Partial Class MenuAwal
     Friend WithEvents Lbel_Modefastboot2 As MetroFramework.Controls.MetroLabel
     Friend WithEvents Lbel_Bootloader As MetroFramework.Controls.MetroLabel
     Friend WithEvents Chkbox_Flashing As MetroFramework.Controls.MetroCheckBox
+    Friend WithEvents Tab_Sideload As MetroFramework.Controls.MetroTabPage
+    Friend WithEvents Btn_SelectFile As MetroFramework.Controls.MetroButton
+    Friend WithEvents MetroLabel11 As MetroFramework.Controls.MetroLabel
+    Friend WithEvents Lbel_Sideload As MetroFramework.Controls.MetroLabel
+    Friend WithEvents Lbl_SideloadLoncation As MetroFramework.Controls.MetroLabel
+    Friend WithEvents TxtBox_Sideload As MetroFramework.Controls.MetroTextBox
+    Friend WithEvents Btn_AdbSideload As MetroFramework.Controls.MetroButton
+    Friend WithEvents ChkBox_FlashModeUnlock As MetroFramework.Controls.MetroCheckBox
 End Class

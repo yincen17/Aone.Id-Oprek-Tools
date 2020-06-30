@@ -236,7 +236,7 @@ Public Class MenuAwal
                          MessageBoxIcon.Question)
 
         If x = System.Windows.Forms.DialogResult.OK Then
-            Shell("""Adb\fastboot.exe"" erase config", AppWinStyle.NormalFocus, True, 30000)
+            Shell("""Adb\fastboot.exe""erase config", AppWinStyle.NormalFocus, True, 30000)
         ElseIf x = system.Windows.Forms.DialogResult.Cancel Then
         End If
     End Sub
@@ -305,7 +305,12 @@ Public Class MenuAwal
         If TxtBox_Img.Text = String.Empty Then
             MsgBox("Please Select Img File First!", MessageBoxIcon.Exclamation, "Warning!")
         Else
-            Shell("""Adb\fastboot.exe"" flash " & TxtBox_Img.Text.ToString, AppWinStyle.NormalFocus, True, 30000)
+            If ChkBox_FlashModeUnlock.Checked Then
+                Shell("""Adb\fastboot.exe"" flash " & TxtBox_Img.Text.ToString, AppWinStyle.NormalFocus, True, 30000)
+            Else
+                MsgBox("Please Checked Flash Mode = Allow For Use flash Method!", MessageBoxIcon.Information, "Information!")
+                MsgBox("If Your Phone Is Xiaomi MI A1 / MI A2 / MI A3 Dont Use Flash Mode To Install TWRP Or Any Recovery!", MessageBoxIcon.Information, "Information!")
+            End If
         End If
     End Sub
 
@@ -450,6 +455,25 @@ Public Class MenuAwal
         If Chkbox_Flashing.Checked Then
             Chkbox_Flashing_Critical.CheckState = CheckState.Unchecked
             Chkbox_Oem.CheckState = CheckState.Unchecked
+        End If
+    End Sub
+
+    Private Sub Btn_SelectFile_Click(sender As Object, e As EventArgs) Handles Btn_SelectFile.Click
+        Using ofd As New OpenFileDialog
+            ofd.Filter = "Zip File (*ZIP*)|*ZIP*"
+            ofd.Title = "Select File ZIP"
+
+            If ofd.ShowDialog() = System.Windows.Forms.DialogResult.OK Then
+                Me.TxtBox_Sideload.Text = ofd.FileName
+            End If
+        End Using
+    End Sub
+
+    Private Sub Btn_AdbSideload_Click(sender As Object, e As EventArgs) Handles Btn_AdbSideload.Click
+        If TxtBox_Sideload.Text = String.Empty Then
+            MsgBox("Please Select File Sideload!", MessageBoxIcon.Exclamation, "Warning!")
+        Else
+            Shell("""Adb\fastboot.exe""sideload" & TxtBox_Sideload.Text.ToString, AppWinStyle.NormalFocus, True, 30000)
         End If
     End Sub
 End Class
