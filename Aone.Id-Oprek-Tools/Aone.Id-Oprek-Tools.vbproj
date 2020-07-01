@@ -46,6 +46,9 @@
   <PropertyGroup>
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>1593576768572_picsay_PL8_icon.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="MetroFramework, Version=1.2.0.3, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
       <HintPath>..\packages\MetroFramework.RunTime.1.2.0.3\lib\net40-Client\MetroFramework.dll</HintPath>
@@ -147,6 +150,7 @@
     <None Include="Resources\Getlogcat.bat" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="1593576768572_picsay_PL8_icon.ico" />
     <Content Include="MetroFramework.txt" />
     <None Include="Resources\CheckActiveSlot.bat" />
     <None Include="Resources\DeviceCheck.bat" />

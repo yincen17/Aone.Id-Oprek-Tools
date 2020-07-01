@@ -108,11 +108,11 @@ Public Class MenuAwal
         Process.Start("https://aone-id.github.io/")
     End Sub
 
-    Private Sub Btn_Dmseg_Click(sender As Object, e As EventArgs) Handles Btn_Dmseg.Click
+    Private Sub Btn_Dmseg_Click(sender As Object, e As EventArgs)
         Shell("""ADB\adb.exe"" logcat >log.text", AppWinStyle.NormalFocus, True, 30000)
     End Sub
 
-    Private Sub Btn_Logcat_Click(sender As Object, e As EventArgs) Handles Btn_Logcat.Click
+    Private Sub Btn_Logcat_Click(sender As Object, e As EventArgs)
         Shell("""ADB\adb.exe"" shell su -c dmesg >logdmseg.text", AppWinStyle.NormalFocus, True, 30000)
     End Sub
 
@@ -237,7 +237,7 @@ Public Class MenuAwal
 
         If x = System.Windows.Forms.DialogResult.OK Then
             Shell("""Adb\fastboot.exe""erase config", AppWinStyle.NormalFocus, True, 30000)
-        ElseIf x = system.Windows.Forms.DialogResult.Cancel Then
+        ElseIf x = System.Windows.Forms.DialogResult.Cancel Then
         End If
     End Sub
 
@@ -245,6 +245,9 @@ Public Class MenuAwal
         If TxtBox_Push.Text = String.Empty Then
             MsgBox("Push Location Empty Returned To Default Location Try Again!", MessageBoxIcon.Exclamation, "Warning!")
             TxtBox_Push.Text = "/mnt/sdcard/"
+
+        ElseIf List_Push.Text = String.Empty Then
+            MsgBox("No Selected Folder And File To Push!", MessageBoxIcon.Exclamation, "Warning!")
         Else
             Shell("""Adb\adb.exe"" push " & List_Push.SelectedItem & " " & TxtBox_Push.Text, AppWinStyle.NormalFocus, True, 30000)
         End If
@@ -256,7 +259,7 @@ Public Class MenuAwal
 
     Private Sub Btn_Apk_Install_Click_1(sender As Object, e As EventArgs) Handles Btn_Apk_Install.Click
         If List_Apk.Text = String.Empty Then
-            MsgBox(" No APK Selected!", MessageBoxIcon.Exclamation, "Warning!")
+            MsgBox(" No Selected Folder And APK!", MessageBoxIcon.Exclamation, "Warning!")
         Else
             Shell("""Adb\adb.exe"" install " & List_Apk.SelectedItem.ToString, AppWinStyle.NormalFocus, True, 30000)
         End If
@@ -475,5 +478,24 @@ Public Class MenuAwal
         Else
             Shell("""Adb\fastboot.exe""sideload" & TxtBox_Sideload.Text.ToString, AppWinStyle.NormalFocus, True, 30000)
         End If
+    End Sub
+    Private Sub MetroToggle1_CheckedChanged(sender As Object, e As EventArgs) Handles MetroToggle1.CheckedChanged
+        If MetroToggle1.CheckState = 1 Then
+            '''Bahasa indonesia
+            Lbel_Dashboard.Text = "Aone.Id Oprek Tools Adalah Sebuah Program Yang dibuat Untuk Memudahkan,
+User Untuk Root,Pasang Twrp Dan Dsb"
+            Btn_Web.Text = "SITUS WEB"
+            Btn_License.Text = "LISENSI"
+            Lbl_version.Text = "Versi"
+
+        ElseIf MetroToggle1.CheckState = 0 Then
+            ''' Balik Ke English
+            Lbel_Dashboard.Text = "Aone.Id Oprek Tools is a program created to make it easier for users to root, 
+install Twrp, open bootloaders and much more."
+            Btn_Web.Text = "WEBSITE"
+            Btn_License.Text = "LICENSE"
+            Lbl_version.Text = "Version"
+        End If
+
     End Sub
 End Class
