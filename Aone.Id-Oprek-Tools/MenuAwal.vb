@@ -288,18 +288,25 @@ Public Class MenuAwal
         If Not Directory.Exists("Adb") Then
             Directory.CreateDirectory("Adb")
 
-            'Mendeteksi Adb Jika tidak Ada Akan Menggunakan Default Adb yang ada di resource
-            If Not File.Exists("Adb\adb.exe") Then
-                File.WriteAllBytes("Adb\adb.exe", My.Resources.adb)
-            End If
-            If Not File.Exists("Adb\AdbWinApi.dll") Then
-                File.WriteAllBytes("Adb\AdbWinApi.dll", My.Resources.AdbWinApi)
-            End If
-            If Not File.Exists("Adb\AdbWinUsbApi.dll") Then
-                File.WriteAllBytes("Adb\AdbWinUsbApi.dll", My.Resources.AdbWinUsbApi)
-            End If
-            If Not File.Exists("Adb\fastboot.exe") Then
-                File.WriteAllBytes("Adb\fastboot.exe", My.Resources.fastboot)
+            'Mendeteksi jika ada minimal adb sudah  terpasang pada sistem
+            If File.Exists("C:\Program Files (x86)\Minimal ADB and Fastboot\unins000.exe") Then
+                My.Computer.FileSystem.CopyDirectory("C:\Program Files (x86)\Minimal ADB and Fastboot\", "Adb\", True)
+                File.Delete("Adb\adb.exe\unins000.exe")
+            Else
+
+                'Mendeteksi Adb Jika tidak Ada Akan Menggunakan Default Adb yang ada di resource
+                If Not File.Exists("Adb\adb.exe") Then
+                    File.WriteAllBytes("Adb\adb.exe", My.Resources.adb)
+                End If
+                If Not File.Exists("Adb\AdbWinApi.dll") Then
+                    File.WriteAllBytes("Adb\AdbWinApi.dll", My.Resources.AdbWinApi)
+                End If
+                If Not File.Exists("Adb\AdbWinUsbApi.dll") Then
+                    File.WriteAllBytes("Adb\AdbWinUsbApi.dll", My.Resources.AdbWinUsbApi)
+                End If
+                If Not File.Exists("Adb\fastboot.exe") Then
+                    File.WriteAllBytes("Adb\fastboot.exe", My.Resources.fastboot)
+                End If
             End If
         End If
     End Sub
@@ -463,7 +470,7 @@ Public Class MenuAwal
 
     Private Sub Btn_SelectFile_Click(sender As Object, e As EventArgs) Handles Btn_SelectFile.Click
         Using ofd As New OpenFileDialog
-            ofd.Filter = "Zip File (*ZIP*)|*ZIP*"
+            ofd.Filter = "Zip File (*ZIP*) Then|*ZIP*"
             ofd.Title = "Select File ZIP"
 
             If ofd.ShowDialog() = System.Windows.Forms.DialogResult.OK Then
