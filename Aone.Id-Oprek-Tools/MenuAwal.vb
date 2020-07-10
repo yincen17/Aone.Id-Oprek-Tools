@@ -291,9 +291,8 @@ Public Class MenuAwal
             'Mendeteksi jika ada minimal adb sudah  terpasang pada sistem
             If File.Exists("C:\Program Files (x86)\Minimal ADB and Fastboot\unins000.exe") Then
                 My.Computer.FileSystem.CopyDirectory("C:\Program Files (x86)\Minimal ADB and Fastboot\", "Adb\", True)
-                File.Delete("Adb\adb.exe\unins000.exe")
+                MsgBox("Detected Minimal Adb And Fastboot Installed!", MessageBoxIcon.Information, "Information!")
             Else
-
                 'Mendeteksi Adb Jika tidak Ada Akan Menggunakan Default Adb yang ada di resource
                 If Not File.Exists("Adb\adb.exe") Then
                     File.WriteAllBytes("Adb\adb.exe", My.Resources.adb)
