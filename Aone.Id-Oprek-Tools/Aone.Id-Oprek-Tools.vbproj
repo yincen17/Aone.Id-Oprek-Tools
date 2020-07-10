@@ -142,18 +142,10 @@
     </None>
     <None Include="App.config" />
     <None Include="packages.config" />
-    <None Include="Resources\Get App Installed.bat" />
-    <None Include="Resources\GetAppInstalled.bat" />
-    <None Include="Resources\GetDmesg.bat" />
-    <None Include="Resources\GetInformationBootloader.bat" />
-    <None Include="Resources\GetInformationSystem.bat" />
-    <None Include="Resources\Getlogcat.bat" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="1593576768572_picsay_PL8_icon.ico" />
     <Content Include="MetroFramework.txt" />
-    <None Include="Resources\CheckActiveSlot.bat" />
-    <None Include="Resources\DeviceCheck.bat" />
     <None Include="Resources\fastboot.exe" />
     <None Include="Resources\AdbWinUsbApi.dll" />
     <None Include="Resources\AdbWinApi.dll" />

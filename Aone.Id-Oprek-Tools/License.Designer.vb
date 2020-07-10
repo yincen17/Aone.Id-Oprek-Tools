@@ -23,29 +23,35 @@ Partial Class License
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(License))
-        Me.MetroLabel1 = New MetroFramework.Controls.MetroLabel()
+        Me.RichText_License = New System.Windows.Forms.RichTextBox()
         Me.SuspendLayout()
         '
-        'MetroLabel1
+        'RichText_License
         '
-        Me.MetroLabel1.AutoSize = True
-        Me.MetroLabel1.Location = New System.Drawing.Point(23, 13)
-        Me.MetroLabel1.Name = "MetroLabel1"
-        Me.MetroLabel1.Size = New System.Drawing.Size(579, 399)
-        Me.MetroLabel1.TabIndex = 0
-        Me.MetroLabel1.Text = resources.GetString("MetroLabel1.Text")
+        Me.RichText_License.BackColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.RichText_License.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.RichText_License.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.RichText_License.Location = New System.Drawing.Point(14, 30)
+        Me.RichText_License.Name = "RichText_License"
+        Me.RichText_License.ReadOnly = True
+        Me.RichText_License.Size = New System.Drawing.Size(669, 423)
+        Me.RichText_License.TabIndex = 1
+        Me.RichText_License.Text = resources.GetString("RichText_License.Text")
         '
         'License
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(684, 441)
-        Me.Controls.Add(Me.MetroLabel1)
+        Me.ClientSize = New System.Drawing.Size(697, 460)
+        Me.Controls.Add(Me.RichText_License)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Me.Name = "License"
+        Me.Resizable = False
         Me.ResumeLayout(False)
-        Me.PerformLayout()
 
     End Sub
 
-    Friend WithEvents MetroLabel1 As MetroFramework.Controls.MetroLabel
+    Friend WithEvents RichText_License As RichTextBox
 End Class

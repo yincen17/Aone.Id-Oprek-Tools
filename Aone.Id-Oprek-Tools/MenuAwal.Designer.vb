@@ -26,8 +26,8 @@ Partial Class MenuAwal
         Me.Tab_Menu = New MetroFramework.Controls.MetroTabControl()
         Me.Tab_Dashboard = New MetroFramework.Controls.MetroTabPage()
         Me.Lbl_versionNumber = New MetroFramework.Controls.MetroLabel()
-        Me.MetroToggle1 = New MetroFramework.Controls.MetroToggle()
         Me.Lbl_version = New MetroFramework.Controls.MetroLabel()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Btn_License = New MetroFramework.Controls.MetroButton()
         Me.Btn_Web = New MetroFramework.Controls.MetroButton()
         Me.Lbel_Dashboard = New MetroFramework.Controls.MetroLabel()
@@ -89,14 +89,15 @@ Partial Class MenuAwal
         Me.Btn_Frp = New MetroFramework.Controls.MetroButton()
         Me.Btn_AdbRestart = New MetroFramework.Controls.MetroButton()
         Me.Btn_DeviceManager = New MetroFramework.Controls.MetroButton()
+        Me.MetroToggle1 = New MetroFramework.Controls.MetroToggle()
         Me.ColorDialog1 = New System.Windows.Forms.ColorDialog()
         Me.MetroLabel1 = New MetroFramework.Controls.MetroLabel()
         Me.MetroLabel5 = New MetroFramework.Controls.MetroLabel()
         Me.Lbl_LANGUAGUE = New MetroFramework.Controls.MetroLabel()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.Tab_Menu.SuspendLayout()
         Me.Tab_Dashboard.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Tab_deviceCheck.SuspendLayout()
         Me.Tab_Reboot.SuspendLayout()
         Me.Tab_Oem.SuspendLayout()
@@ -104,7 +105,6 @@ Partial Class MenuAwal
         Me.Tab_Apk_Push.SuspendLayout()
         Me.Tab_Sideload.SuspendLayout()
         Me.Tab_Misc.SuspendLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -149,17 +149,6 @@ Partial Class MenuAwal
         Me.Lbl_versionNumber.TabIndex = 5
         Me.Lbl_versionNumber.Text = "0.1"
         '
-        'MetroToggle1
-        '
-        Me.MetroToggle1.AutoSize = True
-        Me.MetroToggle1.Location = New System.Drawing.Point(376, 46)
-        Me.MetroToggle1.Name = "MetroToggle1"
-        Me.MetroToggle1.Size = New System.Drawing.Size(80, 20)
-        Me.MetroToggle1.TabIndex = 1
-        Me.MetroToggle1.Text = "Off"
-        Me.MetroToggle1.UseVisualStyleBackColor = True
-        Me.MetroToggle1.Visible = False
-        '
         'Lbl_version
         '
         Me.Lbl_version.AutoSize = True
@@ -168,6 +157,16 @@ Partial Class MenuAwal
         Me.Lbl_version.Size = New System.Drawing.Size(52, 19)
         Me.Lbl_version.TabIndex = 1
         Me.Lbl_version.Text = "Version"
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.BackColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
+        Me.PictureBox1.Location = New System.Drawing.Point(120, 58)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(266, 104)
+        Me.PictureBox1.TabIndex = 4
+        Me.PictureBox1.TabStop = False
         '
         'Btn_License
         '
@@ -757,6 +756,17 @@ Partial Class MenuAwal
         Me.Btn_DeviceManager.TabIndex = 8
         Me.Btn_DeviceManager.Text = "DEVICE MANAGER"
         '
+        'MetroToggle1
+        '
+        Me.MetroToggle1.AutoSize = True
+        Me.MetroToggle1.Location = New System.Drawing.Point(376, 46)
+        Me.MetroToggle1.Name = "MetroToggle1"
+        Me.MetroToggle1.Size = New System.Drawing.Size(80, 20)
+        Me.MetroToggle1.TabIndex = 1
+        Me.MetroToggle1.Text = "Off"
+        Me.MetroToggle1.UseVisualStyleBackColor = True
+        Me.MetroToggle1.Visible = False
+        '
         'MetroLabel1
         '
         Me.MetroLabel1.AutoSize = True
@@ -787,16 +797,6 @@ Partial Class MenuAwal
         Me.Lbl_LANGUAGUE.Text = "LANGUAGUE"
         Me.Lbl_LANGUAGUE.Visible = False
         '
-        'PictureBox1
-        '
-        Me.PictureBox1.BackColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
-        Me.PictureBox1.Location = New System.Drawing.Point(120, 58)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(266, 104)
-        Me.PictureBox1.TabIndex = 4
-        Me.PictureBox1.TabStop = False
-        '
         'PictureBox2
         '
         Me.PictureBox2.Image = CType(resources.GetObject("PictureBox2.Image"), System.Drawing.Image)
@@ -823,10 +823,12 @@ Partial Class MenuAwal
         Me.MaximizeBox = False
         Me.Name = "MenuAwal"
         Me.Padding = New System.Windows.Forms.Padding(30, 74, 30, 25)
+        Me.Resizable = False
         Me.Text = "Aone.Id Oprek Tools"
         Me.Tab_Menu.ResumeLayout(False)
         Me.Tab_Dashboard.ResumeLayout(False)
         Me.Tab_Dashboard.PerformLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Tab_deviceCheck.ResumeLayout(False)
         Me.Tab_deviceCheck.PerformLayout()
         Me.Tab_Reboot.ResumeLayout(False)
@@ -839,7 +841,6 @@ Partial Class MenuAwal
         Me.Tab_Sideload.ResumeLayout(False)
         Me.Tab_Sideload.PerformLayout()
         Me.Tab_Misc.ResumeLayout(False)
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
