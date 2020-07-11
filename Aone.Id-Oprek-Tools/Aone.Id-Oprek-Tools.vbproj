@@ -66,6 +66,7 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.IO.Compression.FileSystem" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
@@ -142,14 +143,12 @@
     </None>
     <None Include="App.config" />
     <None Include="packages.config" />
+    <None Include="Resources\platfromdel.bat" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="1593576768572_picsay_PL8_icon.ico" />
     <Content Include="MetroFramework.txt" />
-    <None Include="Resources\fastboot.exe" />
-    <None Include="Resources\AdbWinUsbApi.dll" />
-    <None Include="Resources\AdbWinApi.dll" />
-    <None Include="Resources\adb.exe" />
+    <None Include="Resources\Del.bat" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="bin\Debug\" />

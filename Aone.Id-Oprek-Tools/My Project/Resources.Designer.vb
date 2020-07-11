@@ -61,42 +61,24 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized resource of type System.Byte[].
+        '''  Looks up a localized string similar to @echo off
+        '''rmdir /Q /S adb.
         '''</summary>
-        Friend ReadOnly Property adb() As Byte()
+        Friend ReadOnly Property Del() As String
             Get
-                Dim obj As Object = ResourceManager.GetObject("adb", resourceCulture)
-                Return CType(obj,Byte())
+                Return ResourceManager.GetString("Del", resourceCulture)
             End Get
         End Property
         
         '''<summary>
-        '''  Looks up a localized resource of type System.Byte[].
+        '''  Looks up a localized string similar to @echo off
+        '''rmdir /Q /S adb\platform-tools
+        '''
+        '''pause.
         '''</summary>
-        Friend ReadOnly Property AdbWinApi() As Byte()
+        Friend ReadOnly Property platfromdel() As String
             Get
-                Dim obj As Object = ResourceManager.GetObject("AdbWinApi", resourceCulture)
-                Return CType(obj,Byte())
-            End Get
-        End Property
-        
-        '''<summary>
-        '''  Looks up a localized resource of type System.Byte[].
-        '''</summary>
-        Friend ReadOnly Property AdbWinUsbApi() As Byte()
-            Get
-                Dim obj As Object = ResourceManager.GetObject("AdbWinUsbApi", resourceCulture)
-                Return CType(obj,Byte())
-            End Get
-        End Property
-        
-        '''<summary>
-        '''  Looks up a localized resource of type System.Byte[].
-        '''</summary>
-        Friend ReadOnly Property fastboot() As Byte()
-            Get
-                Dim obj As Object = ResourceManager.GetObject("fastboot", resourceCulture)
-                Return CType(obj,Byte())
+                Return ResourceManager.GetString("platfromdel", resourceCulture)
             End Get
         End Property
     End Module

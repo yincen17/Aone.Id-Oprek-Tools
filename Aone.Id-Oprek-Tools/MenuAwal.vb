@@ -1,10 +1,11 @@
 ﻿Imports System.IO
 Imports System.Threading
+Imports System.IO.Compression
 Public Class MenuAwal
     'sebagian Tutorial ada disini  https://forum.xda-developers.com/showthread.php?t=2315695
     'Turorial Menjalankan Shell dan Mendapatkan Output nya https://stackoverflow.com/questions/8809194/get-the-output-of-a-shell-command-in-vb-net
     'Tutorial Pesam Box http://rani-irsan.blogspot.com/2015/12/vbnet-bekerja-dengan-messagebox.html
-
+    'Tutorial Ekstak zip https://youtu.be/Yokq-N3iTA4
     Private lstScan As Object
 
     Private Sub MetroComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs)
@@ -293,21 +294,44 @@ Public Class MenuAwal
                 My.Computer.FileSystem.CopyDirectory("C:\Program Files (x86)\Minimal ADB and Fastboot\", "Adb\", True)
                 MsgBox("Detected Minimal Adb And Fastboot Installed!", MessageBoxIcon.Information, "Information!")
             Else
-                'Mendeteksi Adb Jika tidak Ada Akan Menggunakan Default Adb yang ada di resource
-                If Not File.Exists("Adb\adb.exe") Then
-                    File.WriteAllBytes("Adb\adb.exe", My.Resources.adb)
-                End If
-                If Not File.Exists("Adb\AdbWinApi.dll") Then
-                    File.WriteAllBytes("Adb\AdbWinApi.dll", My.Resources.AdbWinApi)
-                End If
-                If Not File.Exists("Adb\AdbWinUsbApi.dll") Then
-                    File.WriteAllBytes("Adb\AdbWinUsbApi.dll", My.Resources.AdbWinUsbApi)
-                End If
-                If Not File.Exists("Adb\fastboot.exe") Then
-                    File.WriteAllBytes("Adb\fastboot.exe", My.Resources.fastboot)
-                End If
+                MsgBox("No Detected Minimal Adb And Fastboot Installed! Select Platfrom Tools Zip FIle!", MessageBoxIcon.Warning, "Information!")
+
+                Using PlatfromTools As New OpenFileDialog
+                    PlatfromTools.Filter = "Zip File (*Zip*)|*Zip*"
+                    PlatfromTools.Title = "Select Platfrom Tools File Zip "
+                    If PlatfromTools.ShowDialog() = System.Windows.Forms.DialogResult.OK Then
+                        Dim LksFile As String = PlatfromTools.FileName
+                        Dim LksAdb As String = "Adb\"
+                        ZipFile.ExtractToDirectory(LksFile, LksAdb)
+                        If File.Exists("Adb\platform-tools\adb.exe") Then
+                            My.Computer.FileSystem.CopyDirectory("Adb\platform-tools", "Adb\", True)
+                            If Not File.Exists("platfromdel.bat") Then
+                                File.WriteAllText("platfromdel.bat", My.Resources.platfromdel)
+                                Process.Start("platfromdel.bat")
+                            End If
+                        Else
+                            MsgBox("Wrong FIle Platfrom Tools", MessageBoxIcon.Warning, "Wrong File!")
+                            If Not File.Exists("Del.bat") Then
+                                File.WriteAllText("Del.bat", My.Resources.Del)
+                            End If
+                            Process.Start("Del.bat")
+                            Application.Exit()
+
+                        End If
+                    Else
+                        MsgBox("This Tool Wil Not Work Wihout Adb Or Platfrom Tools", MessageBoxIcon.Error, "Fatal Missing ADB!")
+                        If Not File.Exists("Del.bat") Then
+                            File.WriteAllText("Del.bat", My.Resources.Del)
+                        End If
+                        Process.Start("Del.bat")
+                        Application.Exit()
+                        End
+                    End If
+                End Using
             End If
         End If
+
+
     End Sub
 
     Private Sub Btn_Recov_Flash_Click(sender As Object, e As EventArgs) Handles Btn_Recov_Flash.Click
