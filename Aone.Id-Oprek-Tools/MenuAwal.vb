@@ -1,11 +1,19 @@
 ﻿Imports System.IO
 Imports System.Threading
 Imports System.IO.Compression
+Imports System.Net
+
 Public Class MenuAwal
+    'Sumber Pembelajaran Bagi Dev Lain!
+    'UI MetroFramework  http://thielj.github.io/MetroFramework
     'sebagian Tutorial ada disini  https://forum.xda-developers.com/showthread.php?t=2315695
     'Turorial Menjalankan Shell dan Mendapatkan Output nya https://stackoverflow.com/questions/8809194/get-the-output-of-a-shell-command-in-vb-net
     'Tutorial Pesam Box http://rani-irsan.blogspot.com/2015/12/vbnet-bekerja-dengan-messagebox.html
     'Tutorial Ekstak zip https://youtu.be/Yokq-N3iTA4
+    'Mengatasi Error SSL https://stackoverflow.com/questions/46825387/vb-net-the-request-was-aborted-could-not-create-ssl-tls-secure-channel
+    'Mendapatkan text dari url https://stackoverflow.com/questions/16655735/vb-net-read-text-from-web-txt-file-and-show-it-in-textbox
+    'Mengecek Koneksi  Internet pc https://stackoverflow.com/questions/19669248/check-internet-connection-vb-net
+    'Menhide Komponen jika tidak di perlukan https://stackoverflow.com/questions/21015331/how-to-make-a-textbox-and-or-a-listbox-disappear-when-not-needed-in-visual-basic
     Private lstScan As Object
 
     Private Sub MetroComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs)
@@ -330,6 +338,23 @@ Public Class MenuAwal
                 End Using
             End If
         End If
+        'Cek Koneksi Internet Pada Pc
+        Try
+            If My.Computer.Network.Ping("www.google.com") Then
+                ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 'Mengatasi Error Ssl 
+                Dim address As String = "https://aone-id.github.io/ota/Aone.Id.Oprek.Tools/Pesan.txt"
+                Dim client As WebClient = New WebClient()
+                Dim reader As StreamReader = New StreamReader(client.OpenRead(address))
+                TxtBox_PesanUrl.Text = reader.ReadToEnd
+            End If
+
+        Catch ex As Exception
+
+            '' Else ''
+
+            TxtBox_PesanUrl.Visible = False
+        End Try
+
 
 
     End Sub
@@ -527,5 +552,14 @@ install Twrp, open bootloaders and much more."
             Lbl_version.Text = "Version"
         End If
 
+    End Sub
+
+    Private Sub Lbl_Pesan_Click(sender As Object, e As EventArgs)
+
+    End Sub
+
+    Private Sub Btn_ChkUpdate_Click(sender As Object, e As EventArgs) Handles Btn_ChkUpdate.Click
+        Dim update As New Update
+        update.Show()
     End Sub
 End Class

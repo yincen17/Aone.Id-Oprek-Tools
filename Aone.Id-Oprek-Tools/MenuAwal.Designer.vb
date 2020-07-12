@@ -25,8 +25,6 @@ Partial Class MenuAwal
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(MenuAwal))
         Me.Tab_Menu = New MetroFramework.Controls.MetroTabControl()
         Me.Tab_Dashboard = New MetroFramework.Controls.MetroTabPage()
-        Me.Lbl_versionNumber = New MetroFramework.Controls.MetroLabel()
-        Me.Lbl_version = New MetroFramework.Controls.MetroLabel()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Btn_License = New MetroFramework.Controls.MetroButton()
         Me.Btn_Web = New MetroFramework.Controls.MetroButton()
@@ -95,6 +93,9 @@ Partial Class MenuAwal
         Me.MetroLabel5 = New MetroFramework.Controls.MetroLabel()
         Me.Lbl_LANGUAGUE = New MetroFramework.Controls.MetroLabel()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
+        Me.TxtBox_PesanUrl = New System.Windows.Forms.TextBox()
+        Me.Btn_ChkUpdate = New MetroFramework.Controls.MetroButton()
+        Me.Lbl_version = New MetroFramework.Controls.MetroLabel()
         Me.Tab_Menu.SuspendLayout()
         Me.Tab_Dashboard.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -126,7 +127,7 @@ Partial Class MenuAwal
         '
         'Tab_Dashboard
         '
-        Me.Tab_Dashboard.Controls.Add(Me.Lbl_versionNumber)
+        Me.Tab_Dashboard.Controls.Add(Me.Btn_ChkUpdate)
         Me.Tab_Dashboard.Controls.Add(Me.Lbl_version)
         Me.Tab_Dashboard.Controls.Add(Me.PictureBox1)
         Me.Tab_Dashboard.Controls.Add(Me.Btn_License)
@@ -140,24 +141,6 @@ Partial Class MenuAwal
         Me.Tab_Dashboard.Text = "Dashboard"
         Me.Tab_Dashboard.VerticalScrollbarBarColor = True
         '
-        'Lbl_versionNumber
-        '
-        Me.Lbl_versionNumber.AutoSize = True
-        Me.Lbl_versionNumber.Location = New System.Drawing.Point(509, 203)
-        Me.Lbl_versionNumber.Name = "Lbl_versionNumber"
-        Me.Lbl_versionNumber.Size = New System.Drawing.Size(26, 19)
-        Me.Lbl_versionNumber.TabIndex = 5
-        Me.Lbl_versionNumber.Text = "0.1"
-        '
-        'Lbl_version
-        '
-        Me.Lbl_version.AutoSize = True
-        Me.Lbl_version.Location = New System.Drawing.Point(456, 203)
-        Me.Lbl_version.Name = "Lbl_version"
-        Me.Lbl_version.Size = New System.Drawing.Size(52, 19)
-        Me.Lbl_version.TabIndex = 1
-        Me.Lbl_version.Text = "Version"
-        '
         'PictureBox1
         '
         Me.PictureBox1.BackColor = System.Drawing.SystemColors.ButtonHighlight
@@ -170,7 +153,7 @@ Partial Class MenuAwal
         '
         'Btn_License
         '
-        Me.Btn_License.Location = New System.Drawing.Point(304, 178)
+        Me.Btn_License.Location = New System.Drawing.Point(186, 178)
         Me.Btn_License.Name = "Btn_License"
         Me.Btn_License.Size = New System.Drawing.Size(120, 32)
         Me.Btn_License.TabIndex = 3
@@ -178,7 +161,7 @@ Partial Class MenuAwal
         '
         'Btn_Web
         '
-        Me.Btn_Web.Location = New System.Drawing.Point(66, 178)
+        Me.Btn_Web.Location = New System.Drawing.Point(40, 178)
         Me.Btn_Web.Name = "Btn_Web"
         Me.Btn_Web.Size = New System.Drawing.Size(120, 32)
         Me.Btn_Web.TabIndex = 2
@@ -806,11 +789,42 @@ Partial Class MenuAwal
         Me.PictureBox2.TabIndex = 9
         Me.PictureBox2.TabStop = False
         '
+        'TxtBox_PesanUrl
+        '
+        Me.TxtBox_PesanUrl.BackColor = System.Drawing.SystemColors.ControlLightLight
+        Me.TxtBox_PesanUrl.Cursor = System.Windows.Forms.Cursors.No
+        Me.TxtBox_PesanUrl.Font = New System.Drawing.Font("Georgia", 12.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtBox_PesanUrl.ForeColor = System.Drawing.Color.Crimson
+        Me.TxtBox_PesanUrl.Location = New System.Drawing.Point(21, 60)
+        Me.TxtBox_PesanUrl.MaxLength = 33
+        Me.TxtBox_PesanUrl.Name = "TxtBox_PesanUrl"
+        Me.TxtBox_PesanUrl.ReadOnly = True
+        Me.TxtBox_PesanUrl.Size = New System.Drawing.Size(276, 26)
+        Me.TxtBox_PesanUrl.TabIndex = 11
+        '
+        'Btn_ChkUpdate
+        '
+        Me.Btn_ChkUpdate.Location = New System.Drawing.Point(335, 178)
+        Me.Btn_ChkUpdate.Name = "Btn_ChkUpdate"
+        Me.Btn_ChkUpdate.Size = New System.Drawing.Size(120, 32)
+        Me.Btn_ChkUpdate.TabIndex = 6
+        Me.Btn_ChkUpdate.Text = "Check Update"
+        '
+        'Lbl_version
+        '
+        Me.Lbl_version.AutoSize = True
+        Me.Lbl_version.Location = New System.Drawing.Point(461, 203)
+        Me.Lbl_version.Name = "Lbl_version"
+        Me.Lbl_version.Size = New System.Drawing.Size(81, 19)
+        Me.Lbl_version.TabIndex = 1
+        Me.Lbl_version.Text = "Version V0.1"
+        '
         'MenuAwal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(548, 338)
+        Me.Controls.Add(Me.TxtBox_PesanUrl)
         Me.Controls.Add(Me.PictureBox2)
         Me.Controls.Add(Me.Lbl_LANGUAGUE)
         Me.Controls.Add(Me.Tab_Menu)
@@ -911,12 +925,13 @@ Partial Class MenuAwal
     Friend WithEvents TxtBox_Sideload As MetroFramework.Controls.MetroTextBox
     Friend WithEvents Btn_AdbSideload As MetroFramework.Controls.MetroButton
     Friend WithEvents ChkBox_FlashModeUnlock As MetroFramework.Controls.MetroCheckBox
-    Friend WithEvents Lbl_version As MetroFramework.Controls.MetroLabel
     Friend WithEvents MetroToggle1 As MetroFramework.Controls.MetroToggle
-    Friend WithEvents Lbl_versionNumber As MetroFramework.Controls.MetroLabel
     Friend WithEvents Lbl_LANGUAGUE As MetroFramework.Controls.MetroLabel
     Friend WithEvents MetroLabel5 As MetroFramework.Controls.MetroLabel
     Friend WithEvents MetroLabel1 As MetroFramework.Controls.MetroLabel
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents PictureBox2 As PictureBox
+    Friend WithEvents TxtBox_PesanUrl As TextBox
+    Friend WithEvents Btn_ChkUpdate As MetroFramework.Controls.MetroButton
+    Friend WithEvents Lbl_version As MetroFramework.Controls.MetroLabel
 End Class
