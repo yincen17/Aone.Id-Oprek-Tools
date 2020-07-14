@@ -562,4 +562,5 @@ install Twrp, open bootloaders and much more."
         Dim update As New Update
         update.Show()
     End Sub
+
 End Class

@@ -23,6 +23,7 @@ Public Class Update
             If lbl_version.Text Like TxtBox_VersiUrl.Text Then
                 Lbl_Psn_Lama.Visible = False
                 Lbl_Psn_Terbaru.Visible = True
+                Btn_Download.Visible = False
 
             Else
                 Lbl_Psn_Lama.Visible = True
@@ -45,7 +46,7 @@ Public Class Update
 
     End Sub
 
-    Private Sub MetroButton2_Click(sender As Object, e As EventArgs) Handles MetroButton2.Click
+    Private Sub MetroButton2_Click(sender As Object, e As EventArgs) Handles Btn_Download.Click
         'Cek Koneksi Internet Pada Pc
         Try
             If My.Computer.Network.Ping("www.google.com") Then

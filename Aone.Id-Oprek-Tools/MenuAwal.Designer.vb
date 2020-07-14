@@ -25,10 +25,16 @@ Partial Class MenuAwal
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(MenuAwal))
         Me.Tab_Menu = New MetroFramework.Controls.MetroTabControl()
         Me.Tab_Dashboard = New MetroFramework.Controls.MetroTabPage()
+        Me.Btn_ChkUpdate = New MetroFramework.Controls.MetroButton()
+        Me.Lbl_version = New MetroFramework.Controls.MetroLabel()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Btn_License = New MetroFramework.Controls.MetroButton()
         Me.Btn_Web = New MetroFramework.Controls.MetroButton()
         Me.Lbel_Dashboard = New MetroFramework.Controls.MetroLabel()
+        Me.Tab_Misc = New MetroFramework.Controls.MetroTabPage()
+        Me.Btn_Frp = New MetroFramework.Controls.MetroButton()
+        Me.Btn_AdbRestart = New MetroFramework.Controls.MetroButton()
+        Me.Btn_DeviceManager = New MetroFramework.Controls.MetroButton()
         Me.Tab_deviceCheck = New MetroFramework.Controls.MetroTabPage()
         Me.Btn_Installed_App = New MetroFramework.Controls.MetroButton()
         Me.Btn_Save_Info = New MetroFramework.Controls.MetroButton()
@@ -83,29 +89,22 @@ Partial Class MenuAwal
         Me.Lbl_SideloadLoncation = New MetroFramework.Controls.MetroLabel()
         Me.TxtBox_Sideload = New MetroFramework.Controls.MetroTextBox()
         Me.Btn_AdbSideload = New MetroFramework.Controls.MetroButton()
-        Me.Tab_Misc = New MetroFramework.Controls.MetroTabPage()
-        Me.Btn_Frp = New MetroFramework.Controls.MetroButton()
-        Me.Btn_AdbRestart = New MetroFramework.Controls.MetroButton()
-        Me.Btn_DeviceManager = New MetroFramework.Controls.MetroButton()
         Me.MetroToggle1 = New MetroFramework.Controls.MetroToggle()
-        Me.ColorDialog1 = New System.Windows.Forms.ColorDialog()
         Me.MetroLabel1 = New MetroFramework.Controls.MetroLabel()
         Me.MetroLabel5 = New MetroFramework.Controls.MetroLabel()
         Me.Lbl_LANGUAGUE = New MetroFramework.Controls.MetroLabel()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.TxtBox_PesanUrl = New System.Windows.Forms.TextBox()
-        Me.Btn_ChkUpdate = New MetroFramework.Controls.MetroButton()
-        Me.Lbl_version = New MetroFramework.Controls.MetroLabel()
         Me.Tab_Menu.SuspendLayout()
         Me.Tab_Dashboard.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Tab_Misc.SuspendLayout()
         Me.Tab_deviceCheck.SuspendLayout()
         Me.Tab_Reboot.SuspendLayout()
         Me.Tab_Oem.SuspendLayout()
         Me.Tab_Recovery.SuspendLayout()
         Me.Tab_Apk_Push.SuspendLayout()
         Me.Tab_Sideload.SuspendLayout()
-        Me.Tab_Misc.SuspendLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -140,6 +139,23 @@ Partial Class MenuAwal
         Me.Tab_Dashboard.TabIndex = 4
         Me.Tab_Dashboard.Text = "Dashboard"
         Me.Tab_Dashboard.VerticalScrollbarBarColor = True
+        '
+        'Btn_ChkUpdate
+        '
+        Me.Btn_ChkUpdate.Location = New System.Drawing.Point(335, 178)
+        Me.Btn_ChkUpdate.Name = "Btn_ChkUpdate"
+        Me.Btn_ChkUpdate.Size = New System.Drawing.Size(120, 32)
+        Me.Btn_ChkUpdate.TabIndex = 6
+        Me.Btn_ChkUpdate.Text = "CHECK UPDATE"
+        '
+        'Lbl_version
+        '
+        Me.Lbl_version.AutoSize = True
+        Me.Lbl_version.Location = New System.Drawing.Point(461, 203)
+        Me.Lbl_version.Name = "Lbl_version"
+        Me.Lbl_version.Size = New System.Drawing.Size(81, 19)
+        Me.Lbl_version.TabIndex = 1
+        Me.Lbl_version.Text = "Version V0.1"
         '
         'PictureBox1
         '
@@ -177,6 +193,43 @@ Partial Class MenuAwal
         Me.Lbel_Dashboard.Text = "Aone.Id Oprek Tools is a program created to make it easier for users to root, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "i" &
     "nstall Twrp, open bootloaders and much more." & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & " "
         '
+        'Tab_Misc
+        '
+        Me.Tab_Misc.Controls.Add(Me.Btn_Frp)
+        Me.Tab_Misc.Controls.Add(Me.Btn_AdbRestart)
+        Me.Tab_Misc.Controls.Add(Me.Btn_DeviceManager)
+        Me.Tab_Misc.HorizontalScrollbarBarColor = True
+        Me.Tab_Misc.Location = New System.Drawing.Point(4, 35)
+        Me.Tab_Misc.Name = "Tab_Misc"
+        Me.Tab_Misc.Size = New System.Drawing.Size(535, 222)
+        Me.Tab_Misc.TabIndex = 7
+        Me.Tab_Misc.Text = "Misc"
+        Me.Tab_Misc.VerticalScrollbarBarColor = True
+        '
+        'Btn_Frp
+        '
+        Me.Btn_Frp.Location = New System.Drawing.Point(206, 133)
+        Me.Btn_Frp.Name = "Btn_Frp"
+        Me.Btn_Frp.Size = New System.Drawing.Size(123, 29)
+        Me.Btn_Frp.TabIndex = 10
+        Me.Btn_Frp.Text = "RESET FRP"
+        '
+        'Btn_AdbRestart
+        '
+        Me.Btn_AdbRestart.Location = New System.Drawing.Point(266, 86)
+        Me.Btn_AdbRestart.Name = "Btn_AdbRestart"
+        Me.Btn_AdbRestart.Size = New System.Drawing.Size(123, 29)
+        Me.Btn_AdbRestart.TabIndex = 9
+        Me.Btn_AdbRestart.Text = "RESTART ADB"
+        '
+        'Btn_DeviceManager
+        '
+        Me.Btn_DeviceManager.Location = New System.Drawing.Point(126, 86)
+        Me.Btn_DeviceManager.Name = "Btn_DeviceManager"
+        Me.Btn_DeviceManager.Size = New System.Drawing.Size(123, 29)
+        Me.Btn_DeviceManager.TabIndex = 8
+        Me.Btn_DeviceManager.Text = "DEVICE MANAGER"
+        '
         'Tab_deviceCheck
         '
         Me.Tab_deviceCheck.Controls.Add(Me.Btn_Installed_App)
@@ -210,7 +263,7 @@ Partial Class MenuAwal
         Me.Btn_Save_Info.Name = "Btn_Save_Info"
         Me.Btn_Save_Info.Size = New System.Drawing.Size(275, 21)
         Me.Btn_Save_Info.TabIndex = 10
-        Me.Btn_Save_Info.Text = "Save TO File"
+        Me.Btn_Save_Info.Text = "SAVE AS"
         '
         'MetroLabel4
         '
@@ -702,43 +755,6 @@ Partial Class MenuAwal
         Me.Btn_AdbSideload.TabIndex = 12
         Me.Btn_AdbSideload.Text = "ADB SIDELOAD"
         '
-        'Tab_Misc
-        '
-        Me.Tab_Misc.Controls.Add(Me.Btn_Frp)
-        Me.Tab_Misc.Controls.Add(Me.Btn_AdbRestart)
-        Me.Tab_Misc.Controls.Add(Me.Btn_DeviceManager)
-        Me.Tab_Misc.HorizontalScrollbarBarColor = True
-        Me.Tab_Misc.Location = New System.Drawing.Point(4, 35)
-        Me.Tab_Misc.Name = "Tab_Misc"
-        Me.Tab_Misc.Size = New System.Drawing.Size(535, 222)
-        Me.Tab_Misc.TabIndex = 7
-        Me.Tab_Misc.Text = "Misc"
-        Me.Tab_Misc.VerticalScrollbarBarColor = True
-        '
-        'Btn_Frp
-        '
-        Me.Btn_Frp.Location = New System.Drawing.Point(206, 146)
-        Me.Btn_Frp.Name = "Btn_Frp"
-        Me.Btn_Frp.Size = New System.Drawing.Size(123, 29)
-        Me.Btn_Frp.TabIndex = 10
-        Me.Btn_Frp.Text = "RESET FRP"
-        '
-        'Btn_AdbRestart
-        '
-        Me.Btn_AdbRestart.Location = New System.Drawing.Point(206, 98)
-        Me.Btn_AdbRestart.Name = "Btn_AdbRestart"
-        Me.Btn_AdbRestart.Size = New System.Drawing.Size(123, 29)
-        Me.Btn_AdbRestart.TabIndex = 9
-        Me.Btn_AdbRestart.Text = "RESTART ADB"
-        '
-        'Btn_DeviceManager
-        '
-        Me.Btn_DeviceManager.Location = New System.Drawing.Point(206, 46)
-        Me.Btn_DeviceManager.Name = "Btn_DeviceManager"
-        Me.Btn_DeviceManager.Size = New System.Drawing.Size(123, 29)
-        Me.Btn_DeviceManager.TabIndex = 8
-        Me.Btn_DeviceManager.Text = "DEVICE MANAGER"
-        '
         'MetroToggle1
         '
         Me.MetroToggle1.AutoSize = True
@@ -792,6 +808,7 @@ Partial Class MenuAwal
         'TxtBox_PesanUrl
         '
         Me.TxtBox_PesanUrl.BackColor = System.Drawing.SystemColors.ControlLightLight
+        Me.TxtBox_PesanUrl.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.TxtBox_PesanUrl.Cursor = System.Windows.Forms.Cursors.No
         Me.TxtBox_PesanUrl.Font = New System.Drawing.Font("Georgia", 12.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TxtBox_PesanUrl.ForeColor = System.Drawing.Color.Crimson
@@ -799,25 +816,8 @@ Partial Class MenuAwal
         Me.TxtBox_PesanUrl.MaxLength = 33
         Me.TxtBox_PesanUrl.Name = "TxtBox_PesanUrl"
         Me.TxtBox_PesanUrl.ReadOnly = True
-        Me.TxtBox_PesanUrl.Size = New System.Drawing.Size(276, 26)
+        Me.TxtBox_PesanUrl.Size = New System.Drawing.Size(276, 19)
         Me.TxtBox_PesanUrl.TabIndex = 11
-        '
-        'Btn_ChkUpdate
-        '
-        Me.Btn_ChkUpdate.Location = New System.Drawing.Point(335, 178)
-        Me.Btn_ChkUpdate.Name = "Btn_ChkUpdate"
-        Me.Btn_ChkUpdate.Size = New System.Drawing.Size(120, 32)
-        Me.Btn_ChkUpdate.TabIndex = 6
-        Me.Btn_ChkUpdate.Text = "Check Update"
-        '
-        'Lbl_version
-        '
-        Me.Lbl_version.AutoSize = True
-        Me.Lbl_version.Location = New System.Drawing.Point(461, 203)
-        Me.Lbl_version.Name = "Lbl_version"
-        Me.Lbl_version.Size = New System.Drawing.Size(81, 19)
-        Me.Lbl_version.TabIndex = 1
-        Me.Lbl_version.Text = "Version V0.1"
         '
         'MenuAwal
         '
@@ -843,6 +843,7 @@ Partial Class MenuAwal
         Me.Tab_Dashboard.ResumeLayout(False)
         Me.Tab_Dashboard.PerformLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Tab_Misc.ResumeLayout(False)
         Me.Tab_deviceCheck.ResumeLayout(False)
         Me.Tab_deviceCheck.PerformLayout()
         Me.Tab_Reboot.ResumeLayout(False)
@@ -854,7 +855,6 @@ Partial Class MenuAwal
         Me.Tab_Apk_Push.PerformLayout()
         Me.Tab_Sideload.ResumeLayout(False)
         Me.Tab_Sideload.PerformLayout()
-        Me.Tab_Misc.ResumeLayout(False)
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -901,7 +901,6 @@ Partial Class MenuAwal
     Friend WithEvents Btn_Apk_Install As MetroFramework.Controls.MetroButton
     Friend WithEvents Btn_filePush As MetroFramework.Controls.MetroButton
     Friend WithEvents MetroLabel7 As MetroFramework.Controls.MetroLabel
-    Friend WithEvents ColorDialog1 As ColorDialog
     Friend WithEvents MetroLabel9 As MetroFramework.Controls.MetroLabel
     Friend WithEvents MetroLabel8 As MetroFramework.Controls.MetroLabel
     Friend WithEvents Btn_Installed_App As MetroFramework.Controls.MetroButton

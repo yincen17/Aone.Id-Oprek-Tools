@@ -24,7 +24,7 @@ Partial Class Update
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Update))
         Me.RichTxtBox_Chagelog = New System.Windows.Forms.RichTextBox()
-        Me.MetroButton2 = New MetroFramework.Controls.MetroButton()
+        Me.Btn_Download = New MetroFramework.Controls.MetroButton()
         Me.MetroLabel1 = New MetroFramework.Controls.MetroLabel()
         Me.MetroLabel2 = New MetroFramework.Controls.MetroLabel()
         Me.Lbl_Psn_Terbaru = New MetroFramework.Controls.MetroLabel()
@@ -44,13 +44,13 @@ Partial Class Update
         Me.RichTxtBox_Chagelog.TabIndex = 0
         Me.RichTxtBox_Chagelog.Text = ""
         '
-        'MetroButton2
+        'Btn_Download
         '
-        Me.MetroButton2.Location = New System.Drawing.Point(23, 212)
-        Me.MetroButton2.Name = "MetroButton2"
-        Me.MetroButton2.Size = New System.Drawing.Size(132, 32)
-        Me.MetroButton2.TabIndex = 2
-        Me.MetroButton2.Text = "DOWNLOAD UPDATE "
+        Me.Btn_Download.Location = New System.Drawing.Point(23, 212)
+        Me.Btn_Download.Name = "Btn_Download"
+        Me.Btn_Download.Size = New System.Drawing.Size(132, 32)
+        Me.Btn_Download.TabIndex = 2
+        Me.Btn_Download.Text = "DOWNLOAD UPDATE "
         '
         'MetroLabel1
         '
@@ -73,9 +73,10 @@ Partial Class Update
         'Lbl_Psn_Terbaru
         '
         Me.Lbl_Psn_Terbaru.AutoSize = True
-        Me.Lbl_Psn_Terbaru.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.Lbl_Psn_Terbaru.BackColor = System.Drawing.Color.Lime
+        Me.Lbl_Psn_Terbaru.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Lbl_Psn_Terbaru.ForeColor = System.Drawing.Color.DarkGreen
-        Me.Lbl_Psn_Terbaru.Location = New System.Drawing.Point(13, 100)
+        Me.Lbl_Psn_Terbaru.Location = New System.Drawing.Point(7, 135)
         Me.Lbl_Psn_Terbaru.Name = "Lbl_Psn_Terbaru"
         Me.Lbl_Psn_Terbaru.Size = New System.Drawing.Size(159, 38)
         Me.Lbl_Psn_Terbaru.TabIndex = 5
@@ -84,11 +85,12 @@ Partial Class Update
         '
         'Lbl_Psn_Lama
         '
-        Me.Lbl_Psn_Lama.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.Lbl_Psn_Lama.BackColor = System.Drawing.Color.Red
+        Me.Lbl_Psn_Lama.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Lbl_Psn_Lama.ForeColor = System.Drawing.Color.Red
-        Me.Lbl_Psn_Lama.Location = New System.Drawing.Point(13, 100)
+        Me.Lbl_Psn_Lama.Location = New System.Drawing.Point(7, 135)
         Me.Lbl_Psn_Lama.Name = "Lbl_Psn_Lama"
-        Me.Lbl_Psn_Lama.Size = New System.Drawing.Size(153, 43)
+        Me.Lbl_Psn_Lama.Size = New System.Drawing.Size(159, 43)
         Me.Lbl_Psn_Lama.TabIndex = 0
         Me.Lbl_Psn_Lama.Text = "You Are Using The " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Old Version"
         Me.Lbl_Psn_Lama.Visible = False
@@ -116,7 +118,7 @@ Partial Class Update
         Me.TxtBox_VersiUrl.Location = New System.Drawing.Point(117, 71)
         Me.TxtBox_VersiUrl.Name = "TxtBox_VersiUrl"
         Me.TxtBox_VersiUrl.ReadOnly = True
-        Me.TxtBox_VersiUrl.Size = New System.Drawing.Size(59, 23)
+        Me.TxtBox_VersiUrl.Size = New System.Drawing.Size(38, 23)
         Me.TxtBox_VersiUrl.TabIndex = 8
         '
         'Update
@@ -130,7 +132,7 @@ Partial Class Update
         Me.Controls.Add(Me.Lbl_Psn_Terbaru)
         Me.Controls.Add(Me.MetroLabel2)
         Me.Controls.Add(Me.MetroLabel1)
-        Me.Controls.Add(Me.MetroButton2)
+        Me.Controls.Add(Me.Btn_Download)
         Me.Controls.Add(Me.RichTxtBox_Chagelog)
         Me.Controls.Add(Me.Lbl_Psn_Lama)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
@@ -144,7 +146,7 @@ Partial Class Update
     End Sub
 
     Friend WithEvents RichTxtBox_Chagelog As RichTextBox
-    Friend WithEvents MetroButton2 As MetroFramework.Controls.MetroButton
+    Friend WithEvents Btn_Download As MetroFramework.Controls.MetroButton
     Friend WithEvents MetroLabel1 As MetroFramework.Controls.MetroLabel
     Friend WithEvents MetroLabel2 As MetroFramework.Controls.MetroLabel
     Friend WithEvents Lbl_Psn_Terbaru As MetroFramework.Controls.MetroLabel
