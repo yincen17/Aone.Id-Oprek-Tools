@@ -1,4 +1,5 @@
-﻿Imports System
+﻿Imports System.Resources
+Imports System
 Imports System.Reflection
 Imports System.Runtime.InteropServices
 
@@ -9,10 +10,10 @@ Imports System.Runtime.InteropServices
 ' Review the values of the assembly attributes
 
 <Assembly: AssemblyTitle("Aone.Id-Oprek-Tools")>
-<Assembly: AssemblyDescription("")>
+<Assembly: AssemblyDescription("Aone.Id Oprek Tools is a program created to make it easier for users to  Modify Android like Rooting , Ubl,And many more.")>
 <Assembly: AssemblyCompany("")>
 <Assembly: AssemblyProduct("Aone.Id-Oprek-Tools")>
-<Assembly: AssemblyCopyright("Copyright ©  2020")>
+<Assembly: AssemblyCopyright("Copyright Aone.Id ©2020")>
 <Assembly: AssemblyTrademark("")>
 
 <Assembly: ComVisible(False)>
@@ -31,5 +32,6 @@ Imports System.Runtime.InteropServices
 ' by using the '*' as shown below:
 ' <Assembly: AssemblyVersion("1.0.*")> 
 
-<Assembly: AssemblyVersion("1.0.0.0")>
-<Assembly: AssemblyFileVersion("1.0.0.0")>
+<Assembly: AssemblyVersion("0.1.0.0")>
+<Assembly: AssemblyFileVersion("0.1.0.0")>
+<Assembly: NeutralResourcesLanguage("")>

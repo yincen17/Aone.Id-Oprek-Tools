@@ -4,7 +4,6 @@ c:\users\ssd\documents\visual studio 2015\Projects\Aone.Id-Oprek-Tools\Aone.Id-O
 c:\users\ssd\documents\visual studio 2015\Projects\Aone.Id-Oprek-Tools\Aone.Id-Oprek-Tools\bin\Debug\Aone.Id-Oprek-Tools.xml
 c:\users\ssd\documents\visual studio 2015\Projects\Aone.Id-Oprek-Tools\Aone.Id-Oprek-Tools\bin\Debug\MetroFramework.dll
 c:\users\ssd\documents\visual studio 2015\Projects\Aone.Id-Oprek-Tools\Aone.Id-Oprek-Tools\bin\Debug\MetroFramework.Fonts.dll
-c:\users\ssd\documents\visual studio 2015\Projects\Aone.Id-Oprek-Tools\Aone.Id-Oprek-Tools\obj\Debug\Aone.Id-Oprek-Tools.vbprojResolveAssemblyReference.cache
 c:\users\ssd\documents\visual studio 2015\Projects\Aone.Id-Oprek-Tools\Aone.Id-Oprek-Tools\obj\Debug\Aone.Id_Oprek_Tools.Resources.resources
 c:\users\ssd\documents\visual studio 2015\Projects\Aone.Id-Oprek-Tools\Aone.Id-Oprek-Tools\obj\Debug\Aone.Id-Oprek-Tools.vbproj.GenerateResource.Cache
 c:\users\ssd\documents\visual studio 2015\Projects\Aone.Id-Oprek-Tools\Aone.Id-Oprek-Tools\obj\Debug\Aone.Id-Oprek-Tools.exe

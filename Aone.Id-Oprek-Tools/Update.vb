@@ -16,7 +16,6 @@ Public Class Update
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 'Mengatasi Error Ssl 
             Dim chkterbaru As String = "https://aone-id.github.io/ota/Aone.Id.Oprek.Tools/VersiTerbaru.txt"
             Dim pengguna As WebClient = New WebClient()
-            Dim versi As String
             Dim baca As StreamReader = New StreamReader(pengguna.OpenRead(chkterbaru))
             TxtBox_VersiUrl.Text = baca.ReadToEnd
 

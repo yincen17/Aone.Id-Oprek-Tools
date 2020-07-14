@@ -536,7 +536,7 @@ Public Class MenuAwal
     End Sub
     Private Sub MetroToggle1_CheckedChanged(sender As Object, e As EventArgs) Handles MetroToggle1.CheckedChanged
         If MetroToggle1.CheckState = 1 Then
-            '''Bahasa indonesia
+            'Bahasa indonesia
             Lbel_Dashboard.Text = "Aone.Id Oprek Tools Adalah Sebuah Program Yang dibuat Untuk Memudahkan,
 User Untuk Root,Pasang Twrp Dan Dsb"
             Btn_Web.Text = "SITUS WEB"
@@ -544,7 +544,7 @@ User Untuk Root,Pasang Twrp Dan Dsb"
             Lbl_version.Text = "Versi"
 
         ElseIf MetroToggle1.CheckState = 0 Then
-            ''' Balik Ke English
+            ' Balik Ke English
             Lbel_Dashboard.Text = "Aone.Id Oprek Tools is a program created to make it easier for users to root, 
 install Twrp, open bootloaders and much more."
             Btn_Web.Text = "WEBSITE"
@@ -554,13 +554,11 @@ install Twrp, open bootloaders and much more."
 
     End Sub
 
-    Private Sub Lbl_Pesan_Click(sender As Object, e As EventArgs)
-
-    End Sub
 
     Private Sub Btn_ChkUpdate_Click(sender As Object, e As EventArgs) Handles Btn_ChkUpdate.Click
         Dim update As New Update
         update.Show()
     End Sub
+
 
 End Class
