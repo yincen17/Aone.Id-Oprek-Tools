@@ -25,6 +25,7 @@ Partial Class MenuAwal
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(MenuAwal))
         Me.Tab_Menu = New MetroFramework.Controls.MetroTabControl()
         Me.Tab_Dashboard = New MetroFramework.Controls.MetroTabPage()
+        Me.Btn_Donate = New MetroFramework.Controls.MetroButton()
         Me.Btn_ChkUpdate = New MetroFramework.Controls.MetroButton()
         Me.Lbl_version = New MetroFramework.Controls.MetroLabel()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
@@ -120,12 +121,13 @@ Partial Class MenuAwal
         Me.Tab_Menu.Controls.Add(Me.Tab_Misc)
         Me.Tab_Menu.Location = New System.Drawing.Point(3, 77)
         Me.Tab_Menu.Name = "Tab_Menu"
-        Me.Tab_Menu.SelectedIndex = 0
+        Me.Tab_Menu.SelectedIndex = 1
         Me.Tab_Menu.Size = New System.Drawing.Size(543, 261)
         Me.Tab_Menu.TabIndex = 0
         '
         'Tab_Dashboard
         '
+        Me.Tab_Dashboard.Controls.Add(Me.Btn_Donate)
         Me.Tab_Dashboard.Controls.Add(Me.Btn_ChkUpdate)
         Me.Tab_Dashboard.Controls.Add(Me.Lbl_version)
         Me.Tab_Dashboard.Controls.Add(Me.PictureBox1)
@@ -140,9 +142,17 @@ Partial Class MenuAwal
         Me.Tab_Dashboard.Text = "Dashboard"
         Me.Tab_Dashboard.VerticalScrollbarBarColor = True
         '
+        'Btn_Donate
+        '
+        Me.Btn_Donate.Location = New System.Drawing.Point(412, 178)
+        Me.Btn_Donate.Name = "Btn_Donate"
+        Me.Btn_Donate.Size = New System.Drawing.Size(120, 32)
+        Me.Btn_Donate.TabIndex = 7
+        Me.Btn_Donate.Text = "DONATE"
+        '
         'Btn_ChkUpdate
         '
-        Me.Btn_ChkUpdate.Location = New System.Drawing.Point(335, 178)
+        Me.Btn_ChkUpdate.Location = New System.Drawing.Point(275, 178)
         Me.Btn_ChkUpdate.Name = "Btn_ChkUpdate"
         Me.Btn_ChkUpdate.Size = New System.Drawing.Size(120, 32)
         Me.Btn_ChkUpdate.TabIndex = 6
@@ -151,7 +161,7 @@ Partial Class MenuAwal
         'Lbl_version
         '
         Me.Lbl_version.AutoSize = True
-        Me.Lbl_version.Location = New System.Drawing.Point(461, 203)
+        Me.Lbl_version.Location = New System.Drawing.Point(427, 143)
         Me.Lbl_version.Name = "Lbl_version"
         Me.Lbl_version.Size = New System.Drawing.Size(81, 19)
         Me.Lbl_version.TabIndex = 1
@@ -169,7 +179,7 @@ Partial Class MenuAwal
         '
         'Btn_License
         '
-        Me.Btn_License.Location = New System.Drawing.Point(186, 178)
+        Me.Btn_License.Location = New System.Drawing.Point(139, 178)
         Me.Btn_License.Name = "Btn_License"
         Me.Btn_License.Size = New System.Drawing.Size(120, 32)
         Me.Btn_License.TabIndex = 3
@@ -177,7 +187,7 @@ Partial Class MenuAwal
         '
         'Btn_Web
         '
-        Me.Btn_Web.Location = New System.Drawing.Point(40, 178)
+        Me.Btn_Web.Location = New System.Drawing.Point(2, 178)
         Me.Btn_Web.Name = "Btn_Web"
         Me.Btn_Web.Size = New System.Drawing.Size(120, 32)
         Me.Btn_Web.TabIndex = 2
@@ -208,9 +218,9 @@ Partial Class MenuAwal
         '
         'Btn_Frp
         '
-        Me.Btn_Frp.Location = New System.Drawing.Point(206, 133)
+        Me.Btn_Frp.Location = New System.Drawing.Point(191, 130)
         Me.Btn_Frp.Name = "Btn_Frp"
-        Me.Btn_Frp.Size = New System.Drawing.Size(123, 29)
+        Me.Btn_Frp.Size = New System.Drawing.Size(123, 26)
         Me.Btn_Frp.TabIndex = 10
         Me.Btn_Frp.Text = "RESET FRP"
         '
@@ -933,4 +943,5 @@ Partial Class MenuAwal
     Friend WithEvents TxtBox_PesanUrl As TextBox
     Friend WithEvents Btn_ChkUpdate As MetroFramework.Controls.MetroButton
     Friend WithEvents Lbl_version As MetroFramework.Controls.MetroLabel
+    Friend WithEvents Btn_Donate As MetroFramework.Controls.MetroButton
 End Class

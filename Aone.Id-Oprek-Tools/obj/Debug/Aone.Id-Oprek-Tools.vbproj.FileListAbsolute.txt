@@ -12,3 +12,6 @@ c:\users\ssd\documents\visual studio 2015\Projects\Aone.Id-Oprek-Tools\Aone.Id-O
 c:\users\ssd\documents\visual studio 2015\Projects\Aone.Id-Oprek-Tools\Aone.Id-Oprek-Tools\obj\Debug\Aone.Id_Oprek_Tools.MenuAwal.resources
 c:\users\ssd\documents\visual studio 2015\Projects\Aone.Id-Oprek-Tools\Aone.Id-Oprek-Tools\obj\Debug\Aone.Id_Oprek_Tools.License.resources
 C:\Users\SSd\Documents\Visual Studio 2015\Projects\Aone.Id-Oprek-Tools\Aone.Id-Oprek-Tools\obj\Debug\Aone.Id_Oprek_Tools.Update.resources
+C:\Users\SSd\Documents\Visual Studio 2015\Projects\Aone.Id-Oprek-Tools\Aone.Id-Oprek-Tools\obj\Debug\Aone.Id-Oprek-Tools.vbprojResolveAssemblyReference.cache
+C:\Users\SSd\Documents\Visual Studio 2015\Projects\Aone.Id-Oprek-Tools\Aone.Id-Oprek-Tools\bin\Debug\Newtonsoft.Json.dll
+C:\Users\SSd\Documents\Visual Studio 2015\Projects\Aone.Id-Oprek-Tools\Aone.Id-Oprek-Tools\bin\Debug\Newtonsoft.Json.xml

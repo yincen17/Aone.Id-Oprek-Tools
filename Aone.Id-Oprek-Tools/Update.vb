@@ -34,6 +34,7 @@ Public Class Update
             '' Else ''
 
             MsgBox("No Detected Internet Conection!", MessageBoxIcon.Exclamation, "No Internet Conection!")
+
         End Try
     End Sub
 

@@ -561,4 +561,28 @@ install Twrp, open bootloaders and much more."
     End Sub
 
 
+
+    Private Sub Btn_Donate_Click(sender As Object, e As EventArgs) Handles Btn_Donate.Click
+        'Cek Koneksi Internet Pada Pc
+        Try
+            If My.Computer.Network.Ping("www.google.com") Then
+                ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 'Mengatasi Error Ssl 
+                Dim address As String = "https://aone-id.github.io/ota/Aone.Id.Oprek.Tools/DonateUrl.txt"
+                Dim client As WebClient = New WebClient()
+                Dim donateurl As String
+                Dim reader As StreamReader = New StreamReader(client.OpenRead(address))
+                donateurl = reader.ReadToEnd
+                Process.Start(donateurl)
+            End If
+        Catch ex As Exception
+
+            '' Else ''
+
+            MsgBox("No Detected Internet Conection!", MessageBoxIcon.Exclamation, "No Internet Conection!")
+        End Try
+    End Sub
+
+    Private Sub TxtBox_PesanUrl_TextChanged(sender As Object, e As EventArgs) Handles TxtBox_PesanUrl.TextChanged
+
+    End Sub
 End Class
