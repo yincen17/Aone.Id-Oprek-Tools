@@ -32,10 +32,6 @@ Partial Class MenuAwal
         Me.Btn_License = New MetroFramework.Controls.MetroButton()
         Me.Btn_Web = New MetroFramework.Controls.MetroButton()
         Me.Lbel_Dashboard = New MetroFramework.Controls.MetroLabel()
-        Me.Tab_Misc = New MetroFramework.Controls.MetroTabPage()
-        Me.Btn_Frp = New MetroFramework.Controls.MetroButton()
-        Me.Btn_AdbRestart = New MetroFramework.Controls.MetroButton()
-        Me.Btn_DeviceManager = New MetroFramework.Controls.MetroButton()
         Me.Tab_deviceCheck = New MetroFramework.Controls.MetroTabPage()
         Me.Btn_Installed_App = New MetroFramework.Controls.MetroButton()
         Me.Btn_Save_Info = New MetroFramework.Controls.MetroButton()
@@ -90,6 +86,10 @@ Partial Class MenuAwal
         Me.Lbl_SideloadLoncation = New MetroFramework.Controls.MetroLabel()
         Me.TxtBox_Sideload = New MetroFramework.Controls.MetroTextBox()
         Me.Btn_AdbSideload = New MetroFramework.Controls.MetroButton()
+        Me.Tab_Misc = New MetroFramework.Controls.MetroTabPage()
+        Me.Btn_Frp = New MetroFramework.Controls.MetroButton()
+        Me.Btn_AdbRestart = New MetroFramework.Controls.MetroButton()
+        Me.Btn_DeviceManager = New MetroFramework.Controls.MetroButton()
         Me.MetroToggle1 = New MetroFramework.Controls.MetroToggle()
         Me.MetroLabel1 = New MetroFramework.Controls.MetroLabel()
         Me.MetroLabel5 = New MetroFramework.Controls.MetroLabel()
@@ -99,13 +99,13 @@ Partial Class MenuAwal
         Me.Tab_Menu.SuspendLayout()
         Me.Tab_Dashboard.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.Tab_Misc.SuspendLayout()
         Me.Tab_deviceCheck.SuspendLayout()
         Me.Tab_Reboot.SuspendLayout()
         Me.Tab_Oem.SuspendLayout()
         Me.Tab_Recovery.SuspendLayout()
         Me.Tab_Apk_Push.SuspendLayout()
         Me.Tab_Sideload.SuspendLayout()
+        Me.Tab_Misc.SuspendLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -121,7 +121,7 @@ Partial Class MenuAwal
         Me.Tab_Menu.Controls.Add(Me.Tab_Misc)
         Me.Tab_Menu.Location = New System.Drawing.Point(3, 77)
         Me.Tab_Menu.Name = "Tab_Menu"
-        Me.Tab_Menu.SelectedIndex = 1
+        Me.Tab_Menu.SelectedIndex = 0
         Me.Tab_Menu.Size = New System.Drawing.Size(543, 261)
         Me.Tab_Menu.TabIndex = 0
         '
@@ -202,43 +202,6 @@ Partial Class MenuAwal
         Me.Lbel_Dashboard.TabIndex = 1
         Me.Lbel_Dashboard.Text = "Aone.Id Oprek Tools is a program created to make it easier for users to root, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "i" &
     "nstall Twrp, open bootloaders and much more." & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & " "
-        '
-        'Tab_Misc
-        '
-        Me.Tab_Misc.Controls.Add(Me.Btn_Frp)
-        Me.Tab_Misc.Controls.Add(Me.Btn_AdbRestart)
-        Me.Tab_Misc.Controls.Add(Me.Btn_DeviceManager)
-        Me.Tab_Misc.HorizontalScrollbarBarColor = True
-        Me.Tab_Misc.Location = New System.Drawing.Point(4, 35)
-        Me.Tab_Misc.Name = "Tab_Misc"
-        Me.Tab_Misc.Size = New System.Drawing.Size(535, 222)
-        Me.Tab_Misc.TabIndex = 7
-        Me.Tab_Misc.Text = "Misc"
-        Me.Tab_Misc.VerticalScrollbarBarColor = True
-        '
-        'Btn_Frp
-        '
-        Me.Btn_Frp.Location = New System.Drawing.Point(191, 130)
-        Me.Btn_Frp.Name = "Btn_Frp"
-        Me.Btn_Frp.Size = New System.Drawing.Size(123, 26)
-        Me.Btn_Frp.TabIndex = 10
-        Me.Btn_Frp.Text = "RESET FRP"
-        '
-        'Btn_AdbRestart
-        '
-        Me.Btn_AdbRestart.Location = New System.Drawing.Point(266, 86)
-        Me.Btn_AdbRestart.Name = "Btn_AdbRestart"
-        Me.Btn_AdbRestart.Size = New System.Drawing.Size(123, 29)
-        Me.Btn_AdbRestart.TabIndex = 9
-        Me.Btn_AdbRestart.Text = "RESTART ADB"
-        '
-        'Btn_DeviceManager
-        '
-        Me.Btn_DeviceManager.Location = New System.Drawing.Point(126, 86)
-        Me.Btn_DeviceManager.Name = "Btn_DeviceManager"
-        Me.Btn_DeviceManager.Size = New System.Drawing.Size(123, 29)
-        Me.Btn_DeviceManager.TabIndex = 8
-        Me.Btn_DeviceManager.Text = "DEVICE MANAGER"
         '
         'Tab_deviceCheck
         '
@@ -765,6 +728,43 @@ Partial Class MenuAwal
         Me.Btn_AdbSideload.TabIndex = 12
         Me.Btn_AdbSideload.Text = "ADB SIDELOAD"
         '
+        'Tab_Misc
+        '
+        Me.Tab_Misc.Controls.Add(Me.Btn_Frp)
+        Me.Tab_Misc.Controls.Add(Me.Btn_AdbRestart)
+        Me.Tab_Misc.Controls.Add(Me.Btn_DeviceManager)
+        Me.Tab_Misc.HorizontalScrollbarBarColor = True
+        Me.Tab_Misc.Location = New System.Drawing.Point(4, 35)
+        Me.Tab_Misc.Name = "Tab_Misc"
+        Me.Tab_Misc.Size = New System.Drawing.Size(535, 222)
+        Me.Tab_Misc.TabIndex = 7
+        Me.Tab_Misc.Text = "Misc"
+        Me.Tab_Misc.VerticalScrollbarBarColor = True
+        '
+        'Btn_Frp
+        '
+        Me.Btn_Frp.Location = New System.Drawing.Point(191, 130)
+        Me.Btn_Frp.Name = "Btn_Frp"
+        Me.Btn_Frp.Size = New System.Drawing.Size(123, 26)
+        Me.Btn_Frp.TabIndex = 10
+        Me.Btn_Frp.Text = "RESET FRP"
+        '
+        'Btn_AdbRestart
+        '
+        Me.Btn_AdbRestart.Location = New System.Drawing.Point(266, 86)
+        Me.Btn_AdbRestart.Name = "Btn_AdbRestart"
+        Me.Btn_AdbRestart.Size = New System.Drawing.Size(123, 29)
+        Me.Btn_AdbRestart.TabIndex = 9
+        Me.Btn_AdbRestart.Text = "RESTART ADB"
+        '
+        'Btn_DeviceManager
+        '
+        Me.Btn_DeviceManager.Location = New System.Drawing.Point(126, 86)
+        Me.Btn_DeviceManager.Name = "Btn_DeviceManager"
+        Me.Btn_DeviceManager.Size = New System.Drawing.Size(123, 29)
+        Me.Btn_DeviceManager.TabIndex = 8
+        Me.Btn_DeviceManager.Text = "DEVICE MANAGER"
+        '
         'MetroToggle1
         '
         Me.MetroToggle1.AutoSize = True
@@ -853,7 +853,6 @@ Partial Class MenuAwal
         Me.Tab_Dashboard.ResumeLayout(False)
         Me.Tab_Dashboard.PerformLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.Tab_Misc.ResumeLayout(False)
         Me.Tab_deviceCheck.ResumeLayout(False)
         Me.Tab_deviceCheck.PerformLayout()
         Me.Tab_Reboot.ResumeLayout(False)
@@ -865,6 +864,7 @@ Partial Class MenuAwal
         Me.Tab_Apk_Push.PerformLayout()
         Me.Tab_Sideload.ResumeLayout(False)
         Me.Tab_Sideload.PerformLayout()
+        Me.Tab_Misc.ResumeLayout(False)
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
