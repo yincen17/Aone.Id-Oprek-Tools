@@ -80,6 +80,10 @@ Public Class MenuAwal
             '' tidak ada karena buat cancel
         End If
 
+        If TextBox_Info.Text.Contains("unauthorized") Then
+            MsgBox("Please Allow Confirm Dialog In Your Device !", MessageBoxIcon.Exclamation, "Unauthorized!")
+        End If
+
 
     End Sub
 

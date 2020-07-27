@@ -799,7 +799,7 @@ Partial Class MenuAwal
         'Lbl_LANGUAGUE
         '
         Me.Lbl_LANGUAGUE.AutoSize = True
-        Me.Lbl_LANGUAGUE.Location = New System.Drawing.Point(393, 11)
+        Me.Lbl_LANGUAGUE.Location = New System.Drawing.Point(389, 12)
         Me.Lbl_LANGUAGUE.Name = "Lbl_LANGUAGUE"
         Me.Lbl_LANGUAGUE.Size = New System.Drawing.Size(86, 19)
         Me.Lbl_LANGUAGUE.TabIndex = 8
