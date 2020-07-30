@@ -96,6 +96,17 @@ Partial Class MenuAwal
         Me.Lbl_LANGUAGUE = New MetroFramework.Controls.MetroLabel()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.TxtBox_PesanUrl = New System.Windows.Forms.TextBox()
+        Me.Tab_Automatic = New MetroFramework.Controls.MetroTabPage()
+        Me.TxtBox_Auto_location = New MetroFramework.Controls.MetroTextBox()
+        Me.Lbl_Automatic = New MetroFramework.Controls.MetroLabel()
+        Me.Lbl_AutomaticLocation = New MetroFramework.Controls.MetroLabel()
+        Me.Btn_Run = New MetroFramework.Controls.MetroButton()
+        Me.MetroButton1 = New MetroFramework.Controls.MetroButton()
+        Me.TxtBox_Auto_Author = New MetroFramework.Controls.MetroLabel()
+        Me.MetroLabel6 = New MetroFramework.Controls.MetroLabel()
+        Me.RchTxtBox_Automatic_Description = New System.Windows.Forms.RichTextBox()
+        Me.MetroLabel3 = New MetroFramework.Controls.MetroLabel()
+        Me.FolderBrowserDialog1 = New System.Windows.Forms.FolderBrowserDialog()
         Me.Tab_Menu.SuspendLayout()
         Me.Tab_Dashboard.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -107,6 +118,7 @@ Partial Class MenuAwal
         Me.Tab_Sideload.SuspendLayout()
         Me.Tab_Misc.SuspendLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Tab_Automatic.SuspendLayout()
         Me.SuspendLayout()
         '
         'Tab_Menu
@@ -116,12 +128,13 @@ Partial Class MenuAwal
         Me.Tab_Menu.Controls.Add(Me.Tab_Reboot)
         Me.Tab_Menu.Controls.Add(Me.Tab_Oem)
         Me.Tab_Menu.Controls.Add(Me.Tab_Recovery)
+        Me.Tab_Menu.Controls.Add(Me.Tab_Automatic)
         Me.Tab_Menu.Controls.Add(Me.Tab_Apk_Push)
         Me.Tab_Menu.Controls.Add(Me.Tab_Sideload)
         Me.Tab_Menu.Controls.Add(Me.Tab_Misc)
         Me.Tab_Menu.Location = New System.Drawing.Point(3, 77)
         Me.Tab_Menu.Name = "Tab_Menu"
-        Me.Tab_Menu.SelectedIndex = 0
+        Me.Tab_Menu.SelectedIndex = 5
         Me.Tab_Menu.Size = New System.Drawing.Size(543, 261)
         Me.Tab_Menu.TabIndex = 0
         '
@@ -829,6 +842,102 @@ Partial Class MenuAwal
         Me.TxtBox_PesanUrl.Size = New System.Drawing.Size(276, 19)
         Me.TxtBox_PesanUrl.TabIndex = 11
         '
+        'Tab_Automatic
+        '
+        Me.Tab_Automatic.Controls.Add(Me.MetroLabel3)
+        Me.Tab_Automatic.Controls.Add(Me.RchTxtBox_Automatic_Description)
+        Me.Tab_Automatic.Controls.Add(Me.MetroLabel6)
+        Me.Tab_Automatic.Controls.Add(Me.TxtBox_Auto_Author)
+        Me.Tab_Automatic.Controls.Add(Me.MetroButton1)
+        Me.Tab_Automatic.Controls.Add(Me.Btn_Run)
+        Me.Tab_Automatic.Controls.Add(Me.Lbl_AutomaticLocation)
+        Me.Tab_Automatic.Controls.Add(Me.Lbl_Automatic)
+        Me.Tab_Automatic.Controls.Add(Me.TxtBox_Auto_location)
+        Me.Tab_Automatic.HorizontalScrollbarBarColor = True
+        Me.Tab_Automatic.Location = New System.Drawing.Point(4, 35)
+        Me.Tab_Automatic.Name = "Tab_Automatic"
+        Me.Tab_Automatic.Size = New System.Drawing.Size(535, 222)
+        Me.Tab_Automatic.TabIndex = 10
+        Me.Tab_Automatic.Text = "Automatic"
+        Me.Tab_Automatic.VerticalScrollbarBarColor = True
+        '
+        'TxtBox_Auto_location
+        '
+        Me.TxtBox_Auto_location.Location = New System.Drawing.Point(118, 175)
+        Me.TxtBox_Auto_location.Name = "TxtBox_Auto_location"
+        Me.TxtBox_Auto_location.ReadOnly = True
+        Me.TxtBox_Auto_location.Size = New System.Drawing.Size(266, 23)
+        Me.TxtBox_Auto_location.TabIndex = 6
+        '
+        'Lbl_Automatic
+        '
+        Me.Lbl_Automatic.AutoSize = True
+        Me.Lbl_Automatic.Location = New System.Drawing.Point(431, 0)
+        Me.Lbl_Automatic.Name = "Lbl_Automatic"
+        Me.Lbl_Automatic.Size = New System.Drawing.Size(108, 19)
+        Me.Lbl_Automatic.TabIndex = 7
+        Me.Lbl_Automatic.Text = "Automatic Mode"
+        '
+        'Lbl_AutomaticLocation
+        '
+        Me.Lbl_AutomaticLocation.AutoSize = True
+        Me.Lbl_AutomaticLocation.Location = New System.Drawing.Point(8, 175)
+        Me.Lbl_AutomaticLocation.Name = "Lbl_AutomaticLocation"
+        Me.Lbl_AutomaticLocation.Size = New System.Drawing.Size(100, 19)
+        Me.Lbl_AutomaticLocation.TabIndex = 8
+        Me.Lbl_AutomaticLocation.Text = "Folder Location"
+        '
+        'Btn_Run
+        '
+        Me.Btn_Run.Location = New System.Drawing.Point(405, 88)
+        Me.Btn_Run.Name = "Btn_Run"
+        Me.Btn_Run.Size = New System.Drawing.Size(114, 31)
+        Me.Btn_Run.TabIndex = 9
+        Me.Btn_Run.Text = "RUN"
+        '
+        'MetroButton1
+        '
+        Me.MetroButton1.Location = New System.Drawing.Point(405, 175)
+        Me.MetroButton1.Name = "MetroButton1"
+        Me.MetroButton1.Size = New System.Drawing.Size(114, 31)
+        Me.MetroButton1.TabIndex = 10
+        Me.MetroButton1.Text = "SELECT FOLDER"
+        '
+        'TxtBox_Auto_Author
+        '
+        Me.TxtBox_Auto_Author.AutoSize = True
+        Me.TxtBox_Auto_Author.Location = New System.Drawing.Point(23, 18)
+        Me.TxtBox_Auto_Author.Name = "TxtBox_Auto_Author"
+        Me.TxtBox_Auto_Author.Size = New System.Drawing.Size(61, 19)
+        Me.TxtBox_Auto_Author.TabIndex = 11
+        Me.TxtBox_Auto_Author.Text = "Creator :"
+        '
+        'MetroLabel6
+        '
+        Me.MetroLabel6.AutoSize = True
+        Me.MetroLabel6.Location = New System.Drawing.Point(3, 51)
+        Me.MetroLabel6.Name = "MetroLabel6"
+        Me.MetroLabel6.Size = New System.Drawing.Size(81, 19)
+        Me.MetroLabel6.TabIndex = 13
+        Me.MetroLabel6.Text = "Description :"
+        '
+        'RchTxtBox_Automatic_Description
+        '
+        Me.RchTxtBox_Automatic_Description.Location = New System.Drawing.Point(97, 50)
+        Me.RchTxtBox_Automatic_Description.Name = "RchTxtBox_Automatic_Description"
+        Me.RchTxtBox_Automatic_Description.Size = New System.Drawing.Size(298, 109)
+        Me.RchTxtBox_Automatic_Description.TabIndex = 16
+        Me.RchTxtBox_Automatic_Description.Text = ""
+        '
+        'MetroLabel3
+        '
+        Me.MetroLabel3.AutoSize = True
+        Me.MetroLabel3.Location = New System.Drawing.Point(97, 18)
+        Me.MetroLabel3.Name = "MetroLabel3"
+        Me.MetroLabel3.Size = New System.Drawing.Size(83, 19)
+        Me.MetroLabel3.TabIndex = 17
+        Me.MetroLabel3.Text = "MetroLabel3"
+        '
         'MenuAwal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 16.0!)
@@ -866,6 +975,8 @@ Partial Class MenuAwal
         Me.Tab_Sideload.PerformLayout()
         Me.Tab_Misc.ResumeLayout(False)
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Tab_Automatic.ResumeLayout(False)
+        Me.Tab_Automatic.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -944,4 +1055,15 @@ Partial Class MenuAwal
     Friend WithEvents Btn_ChkUpdate As MetroFramework.Controls.MetroButton
     Friend WithEvents Lbl_version As MetroFramework.Controls.MetroLabel
     Friend WithEvents Btn_Donate As MetroFramework.Controls.MetroButton
+    Friend WithEvents Tab_Automatic As MetroFramework.Controls.MetroTabPage
+    Friend WithEvents RchTxtBox_Automatic_Description As RichTextBox
+    Friend WithEvents MetroLabel6 As MetroFramework.Controls.MetroLabel
+    Friend WithEvents TxtBox_Auto_Author As MetroFramework.Controls.MetroLabel
+    Friend WithEvents MetroButton1 As MetroFramework.Controls.MetroButton
+    Friend WithEvents Btn_Run As MetroFramework.Controls.MetroButton
+    Friend WithEvents Lbl_AutomaticLocation As MetroFramework.Controls.MetroLabel
+    Friend WithEvents Lbl_Automatic As MetroFramework.Controls.MetroLabel
+    Friend WithEvents TxtBox_Auto_location As MetroFramework.Controls.MetroTextBox
+    Friend WithEvents MetroLabel3 As MetroFramework.Controls.MetroLabel
+    Friend WithEvents FolderBrowserDialog1 As FolderBrowserDialog
 End Class

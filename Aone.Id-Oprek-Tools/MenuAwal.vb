@@ -2,6 +2,7 @@
 Imports System.Threading
 Imports System.IO.Compression
 Imports System.Net
+Imports Newtonsoft.Json.Linq
 
 Public Class MenuAwal
     'Sumber Pembelajaran Bagi Dev Lain!
@@ -588,5 +589,17 @@ install Twrp, open bootloaders and much more."
 
     Private Sub TxtBox_PesanUrl_TextChanged(sender As Object, e As EventArgs) Handles TxtBox_PesanUrl.TextChanged
 
+    End Sub
+
+    Private Sub MetroButton1_Click_2(sender As Object, e As EventArgs) Handles MetroButton1.Click
+        If (FolderBrowserDialog1.ShowDialog() = DialogResult.OK) Then
+            TxtBox_Auto_location.Text = FolderBrowserDialog1.SelectedPath
+        End If
+        ''https://stackoverflow.com/questions/16036853/folderbrowser-with-textbox-in-vb-net
+        ''https://www.codeproject.com/Questions/1249202/Vb-net-code-to-parse-GSTR-A-json-file
+        Dim lokasi As String
+        lokasi = TxtBox_Auto_location.Text + "\Author.json"
+        Dim myJObject = JObject.Parse(lokasi)
+        TxtBox_Auto_Author.Text.Take(myJObject.SelectToken("Creator"))
     End Sub
 End Class
